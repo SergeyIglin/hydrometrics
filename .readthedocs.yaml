@@ -1,0 +1,26 @@
+# Конфигурация Read the Docs: https://docs.readthedocs.com/platform/en/stable/config-file/v2.html
+#
+# Схема из двух проектов RTD с одним этим файлом:
+#   hydrometrics     основной проект, Language = Russian, адрес /ru/latest/
+#   hydrometrics-en  проект-перевод, Language = English, адрес /en/latest/
+# Язык сборки RTD определяет настройка проекта, conf.py и этот файл для обоих общие.
+# Пошаговая настройка описана в README.md.
+#
+# Формат pdf не включён: локально сборка PDF не проверялась (см. docs/_dev/ASSUMPTIONS.md).
+version: 2
+
+build:
+  os: ubuntu-24.04
+  tools:
+    python: "3.13"
+
+python:
+  install:
+    - method: pip
+      path: .
+      extra_requirements:
+        - docs
+
+sphinx:
+  configuration: docs/conf.py
+  fail_on_warning: true

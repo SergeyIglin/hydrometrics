@@ -1,0 +1,305 @@
+﻿--- A. axis: форма и корректность ---
+[nse] shape=(3,) совпало_с_поколоночным=True
+[nse axis=1 mean] ((400,), np.float64(-0.5616745536634447))
+[rmse] shape=(3,) совпало_с_поколоночным=True
+[rmse axis=1 mean] ((400,), np.float64(6.817571437960781))
+[nrmse] shape=(1, 3) совпало_с_поколоночным=False
+[nrmse axis=1 mean] EXC RuntimeError: Error computing Normalized Root Mean Squared Error: boolean index did not match indexed array along axis 1; size of axis is 400 but size of correspond
+[pbias] shape=(1, 3) совпало_с_поколоночным=False
+[pbias axis=1 mean] EXC RuntimeError: Error computing Percent Bias: boolean index did not match indexed array along axis 1; size of axis is 400 but size of corresponding boolean axis is 1
+[kge_2009] shape=(3,) совпало_с_поколоночным=True
+[kge_2009 axis=1 mean] ((400,), np.float64(0.581833229689582))
+[rsr] shape=(3,) совпало_с_поколоночным=True
+[rsr axis=1 mean] ((400,), np.float64(0.7023930945282045))
+[ssigma] shape=() совпало_с_поколоночным=False
+[ssigma axis=1 mean] ((), np.float64(0.39153833653974834))
+[ve] shape=(3,) совпало_с_поколоночным=True
+[ve axis=1 mean] ((400,), np.float64(0.8765525604070572))
+[willmott_d] shape=(3,) совпало_с_поколоночным=True
+[willmott_d axis=1 mean] ((400,), np.float64(0.8399862446550606))
+[pearson_r] shape=(3,) совпало_с_поколоночным=True
+[pearson_r axis=1 mean] ((400,), np.float64(0.8871394374026343))
+[spearman_r] EXC RuntimeError: Error computing Spearman Correlation: operands could not be broadcast together with shapes (400,) (400,3) 
+[spearman_r axis=1 mean] EXC RuntimeError: Error computing Spearman Correlation: too many indices for array: array is 1-dimensional, but 2 were indexed
+[kendall_tau] EXC RuntimeError: Error computing Kendall's Tau: operands could not be broadcast together with shapes (400,) (400,3) 
+[kendall_tau axis=1 mean] EXC RuntimeError: Error computing Kendall's Tau: too many indices for array: array is 1-dimensional, but 2 were indexed
+[roc_auc] shape=() совпало_с_поколоночным=False
+[roc_auc axis=1 mean] EXC RuntimeError: Error computing ROC AUC: axis 1 is out of bounds for array of dimension 1
+[pr_auc] shape=() совпало_с_поколоночным=False
+[pr_auc axis=1 mean] EXC RuntimeError: Error computing PR AUC (Average Precision): axis 1 is out of bounds for array of dimension 1
+[forecast_verification] shape=(400, 3) совпало_с_поколоночным=False
+[forecast_verification axis=1 mean] ((400, 3), np.float64(0.705))
+[brier_score] shape=(3,) совпало_с_поколоночным=True
+[brier_score axis=1 mean] ((400,), np.float64(0.24492682660898146))
+[sharpness] shape=(3,) совпало_с_поколоночным=True
+[sharpness axis=1 mean] ((400,), np.float64(0.010291937134956212))
+[reliability] EXC RuntimeError: Error computing Reliability: boolean index did not match indexed array along axis 0; size of axis is 400 but size of corresponding boolean axis is 1
+[reliability axis=1 mean] EXC RuntimeError: Error computing Reliability: boolean index did not match indexed array along axis 1; size of axis is 3 but size of corresponding boolean axis is 1
+[crps] shape=(3,) совпало_с_поколоночным=True
+[crps axis=1 mean] ((400,), np.float64(5.9854182022451985))
+[crpss] shape=(3,) совпало_с_поколоночным=True
+[crpss axis=1 mean] ((400,), np.float64(0.1577652008768751))
+--- B. nrmse/pbias при axis=1: среднее против верного ---
+pbias axis=1 верное среднее -10.129353603511392
+[pbias axis=1 библиотека] EXC RuntimeError: Error computing Percent Bias: boolean index did not match indexed array along axis 1; size of axis is 400 but size of corresponding boolean axis is 1
+[pbias axis=0 библиотека, reduction=none] [[-10.23503245 -10.42663193  -9.3591962 ]]
+pbias axis=0 верное [np.float64(-10.235032445563377), np.float64(-10.426631931859516), np.float64(-9.35919619589808)]
+[pbias axis=1 pandas] EXC IndexError: boolean index did not match indexed array along axis 1; size of axis is 400 but size of corresponding boolean axis is 1
+nrmse axis=1 верное среднее 0.14031703680784693
+[nrmse axis=1 библиотека] EXC RuntimeError: Error computing Normalized Root Mean Squared Error: boolean index did not match indexed array along axis 1; size of axis is 400 but size of correspond
+[nrmse axis=0 библиотека, reduction=none] [[0.15134596 0.13619331 0.16057149]]
+nrmse axis=0 верное [np.float64(0.15134596219635926), np.float64(0.13619331291514827), np.float64(0.16057148894531398)]
+[nrmse axis=0 std] [[0.63252639 0.37422646 1.07509093]]
+[spearman axis=0 2D] EXC RuntimeError: Error computing Spearman Correlation: operands could not be broadcast together with shapes (400,) (400,3) 
+[roc_auc axis=0 2D] 0.9303390006819311
+[ssigma numpy axis ignored] (0.39153833653974834, 0.39153833653974834)
+--- C. веса вместе с axis ---
+[mae sample_weight+axis=0] (3,)
+[nse sample_weight+axis=0] (3,)
+[pearson_r sample_weight+axis=0] (1, 3)
+[kge_2009 sample_weight+axis=0] (1, 3)
+[alpha_component sample_weight+axis=0] (1, 3)
+[rsr sample_weight+axis=0] (1, 3)
+[sharpness sample_weight+axis=0] (1, 3)
+[nrmse sample_weight+axis=0] (1, 3)
+--- D. игнорирование весов ---
+[spearman_r] True
+[kendall_tau] True
+[roc_auc] True
+[pr_auc] True
+[ssigma] True
+[forecast_verification] True
+[crps ensemble weights ignored] True
+--- E. KGE: формула 2012 против Kling et al. ---
+kge_2012 0.7993837942880251
+4 слагаемых (r,alpha,beta,gamma) 0.7993837942880251
+Kling 2012 (r,beta,gamma) 0.8002155902704232
+kge_2009 0.851014422666677 ручной 0.851014422666677
+kge_2009 pandas value type tuple
+[float(kge_2009 pandas)] EXC TypeError: Cannot convert non-scalar MetricResult to float
+[kge_2009 xarray dim] EXC ValueError: different number of dimensions on data and dims: 0 vs 1
+--- F. xarray ---
+dim=time DataArray ('station',) ['a', 'b', 'c']
+dim=time reduction=mean ignored (3,)
+dim=[time,station] ()
+[axis=0 xarray] EXC TypeError: hydrometrics.backends.numpy._nse_core() got multiple values for keyword argument 'axis'
+[dim=time for nrmse] EXC ValueError: different number of dimensions on data and dims: 2 vs 1
+[dim=time for pbias] EXC ValueError: different number of dimensions on data and dims: 2 vs 1
+[dim=time for rsr] (3,)
+[dim=time for ssigma] EXC ValueError: different number of dimensions on data and dims: 2 vs 1
+[no alignment: reversed coords] (-0.21996427944715435, 0.8468255894592033)
+[Dataset dim=time] ()
+[Dataset no dim] 0.8468255894592033
+[kge_components xarray type] {'r': 'MetricResult', 'alpha': 'MetricResult', 'beta': 'MetricResult', 'gamma': 'MetricResult'}
+[kge_components xarray value type] ndarray
+--- G. ленивые массивы dask ---
+dask input result is ndarray
+--- H. pandas: индекс и подписи ---
+одинаковый индекс 0.5989076349116993
+обратный порядок индекса (без выравнивания) -1.2454611557371975
+DataFrame axis=0 ndarray (3,)
+Series+ndarray route MetricResult 0.5989076349116993
+sim Series obs ndarray route 0.5989076349116993
+[pandas string column obs] EXC TypeError: ufunc 'divide' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''sa
+[pandas nullable] 0.5
+--- I. polars ---
+polars series 0.5989076349116993
+polars with null 0.5
+[LazyFrame] EXC TypeError: ufunc 'isnan' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''saf
+polars DF axis=0 (3,)
+--- J. sentinel ---
+numpy sentinel -999 0.10000000000000009 {'policy': 'propagate', 'n_nan_removed': 1, 'n_total': 5}
+numpy sentinel list 0.10000000000000009
+[pandas sentinel] EXC TypeError: _mae_core() got an unexpected keyword argument 'sentinel'
+[polars sentinel] EXC TypeError: _mae_core() got an unexpected keyword argument 'sentinel'
+[xarray sentinel] EXC TypeError: _mae_core() got an unexpected keyword argument 'sentinel'
+sentinel in parameters? False
+sample_weight in parameters? False
+nan_info omit {'policy': 'omit', 'n_nan_removed': 1, 'n_total': 2}
+nan_info propagate {'policy': 'propagate', 'n_nan_removed': 1, 'n_total': 2}
+bad nan_policy numpy 0.0
+bad reduction numpy (3,)
+[negative weight] EXC ValueError: Sample weights must be non-negative
+[zero weight sum] nan
+[nan weight] 0.10000000000000009
+[list input] 0.97
+[int array] 0.5
+[int nan check] {'policy': 'omit', 'n_nan_removed': 0, 'n_total': 2}
+[string array] EXC TypeError: ufunc 'isnan' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''saf
+[validate default policy] [1.]
+[axis out of range] EXC RuntimeError: Error computing Nash-Sutcliffe Efficiency: axis 5 is out of bounds for array of dimension 2
+[Enum policy] EXC ValueError: Input contains 1 NaN values (nan_policy='raise')
+[Enum reduction] (3,)
+[Enum reduction SUM] ()
+--- K. NaN не парно в propagate (обе стороны) ---
+pearson propagate 0.8689292671569084 omit 0.8862268146041636 scipy-pair 0.8862268146041634
+beta propagate 0.9011345057555696 omit 0.9002236140266494
+nse propagate 0.5841841116052808 omit 0.5841841116052808
+nse NaN only in sim propagate 0.6445905511006482 omit 0.5841841116052808
+accuracy NaN counted wrong 0.6666666666666666
+axis omit keeps NaN handling per metric [0.975      0.99785714]
+--- L. reliability: p=1.0 и axis ---
+perfect with p=1 0.0
+always-wrong p=1 0.0 ожидается 1.0
+brier 1.0
+[reliability axis=0 shape] EXC RuntimeError: Error computing Reliability: boolean index did not match indexed array along axis 0; size of axis is 400 but size of corresponding boolean axis is 1
+[reliability axis=0 vs none] EXC RuntimeError: Error computing Reliability: boolean index did not match indexed array along axis 0; size of axis is 400 but size of corresponding boolean axis is 1
+brier outside range 9.0
+--- M. crps ---
+lib 0.48150296361457445 standard m^2 0.619986955282074 fair m(m-1) 0.48150296361457445
+2D obs ensemble (400, 3)
+2D obs ensemble axis=0 (400, 3)
+crpss per-sample mean vs ratio of means
+lib 0.3497421615730491 ratio_of_means 0.5033341264944813 mean_of_ratios 0.3497421615730491
+crpss default deterministic ref == 1-MAE ratio 0.7013290532732757 0.7013290532732755
+weighted_crps func on ensemble == mean(w*crps)/mean(w) 0.4777650086909338 0.4777650086909338
+[weighted_crps func deterministic] EXC RuntimeError: Error computing Weighted Continuous Ranked Probability Score: cannot broadcast a non-scalar to a scalar array
+[weighted_crps sample_weight no func] 0.48150296361457445
+[weighted_crps sample_weight det] EXC RuntimeError: Error computing Weighted Continuous Ranked Probability Score: cannot broadcast a non-scalar to a scalar array
+--- N. группировка ---
+GroupedResult(name='Nash-Sutcliffe Efficiency', group_by=('month',), n_groups=12) name Nash-Sutcliffe Efficiency ((np.int32(1),), (np.int32(2),), (np.int32(3),)) [0.6291632  0.71269385 0.44575777] ['direction', 'bounds', 'reference', 'parameters', 'nan_info']
+порядок появления (('b', np.int32(1)), ('b', np.int32(2))) ('a', np.int32(2)) 15
+to_pandas {'month': [1, 2], 'Nash-Sutcliffe Efficiency': [0.629163196453383, 0.7126938532035613]}
+to_dict keys ['name', 'group_names', 'groups', 'values', 'meta']
+[to_xarray single] Frozen({'month': 12})
+[to_xarray multi] EXC ValueError: different number of dimensions on data and dims: 1 vs 2
+[kge_components grouped] EXC TypeError: float() argument must be a string or a real number, not 'dict'
+[ssigma_delta grouped] EXC RuntimeError: Error computing S/sigma_delta: obs, sim and ref_date must have the same shape, got (62,), (62,), (10,)
+[numpy dict] [6.89402045 7.11686124]
+[numpy names] EXC TypeError: When passing numpy arrays, group_by must be a dict mapping group names to code arrays.
+[missing col] EXC KeyError: "Group column 'zzz' not found in DataFrame columns"
+[empty dict] EXC ValueError: No grouping variables resolved from group_by
+[len mismatch] EXC IndexError: boolean index did not match indexed array along axis 0; size of axis is 400 but size of corresponding boolean axis is 2
+[NaN group key] 3
+[categorical empty group] 12
+[xarray Dataset group, strings] EXC IndexError: too many indices for array: array is 0-dimensional, but 1 were indexed
+[xarray Dataset group, arrays] [6.89402045 7.11686124]
+[polars names] EXC TypeError: When passing numpy arrays, group_by must be a dict mapping group names to code arrays.
+[polars dict] [6.89402045 7.11686124]
+[2D data groups] [7.20850229 6.68356212]
+[group of size 1 nse] [ 1. nan]
+--- O. MetricResult ---
+Nash-Sutcliffe Efficiency: 0.598908 (direction: maximize, bounds: (-inf, 1.0))
+MetricResult(
+  name='Nash-Sutcliffe Efficiency',
+  value=0.598908,
+  direction='maximize',
+  bounds=(-inf, 1.0)
+)
+type(value) float64 is_scalar True scalar_value 0.5989076349116993
+[frozen] EXC FrozenInstanceError: cannot assign to field 'value'
+[json.dumps to_dict] 666
+to_dict keys ['value', 'name', 'direction', 'bounds', 'parameters', 'reference', 'nan_info', 'norm_source', 'meta']
+norm_source default None
+norm_source norm user
+norm_source pandas None
+meta numpy ['description', 'formula'] meta pandas ['formula']
+[json r2 0-d] {"value": 0.5989076349116993, "name": "R-squared", "direction": "maximize", "bounds": [-Infinity, 1.0], "parameters": {"axis": null, "nan_policy": "propagate", "reduction": "mean"}, "reference": "Standard metric", "nan_info": {"policy": "propagate", "n_nan_removed": 0, "n_total": 400}, "norm_source": null, "meta": {"description": "Coefficient of determination. Measures proportion of variance explained.", "formula": "1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}"}}
+[json dict value] 592
+[float dict value] EXC TypeError: Cannot convert non-scalar MetricResult to float
+[str dict] KGE Components: dict{r: 0.893285, alpha: 1.01825, beta: 0.89765, gamma: 1.13435} (direction: maximize, bounds: (-1.0, 1.0))
+[str r2] R-squared: array() (direction: maximize, bounds: (-inf, 1.0))
+[is_scalar r2] True
+[float r2] 0.5989076349116993
+[str DataArray value] Nash-Sutcliffe Efficiency: <xarray.DataArray (station: 3)> Size: 24B
+array([ 0.5
+[is_scalar 0d DataArray] False
+[gauge params json] EXC TypeError: Object of type ndarray is not JSON serializable
+[norm array json] EXC TypeError: Object of type ndarray is not JSON serializable
+[str bounds inf in json] [-Infinity, 1.0]
+--- P. метрики с параметрами ---
+nrmse mean 0.15134596219635926
+nrmse std 0.632526390102089
+nrmse range 0.1018513104023449
+nrmse iqr 0.4993015472922912
+[nrmse bad] EXC RuntimeError: Error computing Normalized Root Mean Squared Error: Unknown normalization: bogus
+nse norm=mean == default True
+[nse norm axis scalar] [0.96567814 0.97800407 0.95418837]
+[nse norm axis array] [0.97740678 0.98267163 0.9703538 ]
+[modified_nse norm axis scalar] [0.8399234  0.86328208 0.8241424 ]
+[modified_nse norm axis array] [0.8721513  0.88097526 0.85954852]
+[log_nse negative] 1.0
+[log_nse zero eps] -0.26489988568146106
+[log_nse zero eps=0] nan
+[log_nse pass epsilon] 0.3258337145152823
+alpha version 2009 == 2012 True
+[alpha bad version] 1.0182497020050743
+[kge_components bad version] EXC RuntimeError: Error computing KGE Components: version must be '2009' or '2012', got '1999'
+[kge_components pandas 2009] ['r', 'alpha', 'beta']
+[kge_components pandas bad] ['r', 'alpha', 'beta']
+ssigma m 0.632526390102089 0.6341136608289
+[ssigma small] EXC RuntimeError: Error computing S/sigma: Sample size too small: need n > m=2, got n=2
+[ssigma NaN only in sim] 0.5969107449731708
+[ssigma pandas weight] EXC NotImplementedError: weight is not supported for Ssigma
+[ssigma axis=0] 0.39153833653974834
+[ssigma axis=0 pandas] (1, 3)
+[fv reduction none] [1 0 1 1 0]
+[fv axis=0] (400, 3)
+[fv pandas] [1 0 1 1 0]
+fv delta 0.3325
+[fv delta list ref] Forecast verification delta: 0.3325 (direction: maximize, bounds: (0, 1))
+[fv delta shape mismatch] EXC RuntimeError: Error computing Forecast verification delta: operands could not be broadcast together with shapes (5,) (400,) 
+[fv delta positional] EXC TypeError: BackendRegistry.get_dispatcher.<locals>.dispatcher() takes 2 positional arguments but 3 were given
+[fv delta axis] EXC RuntimeError: Error computing Forecast verification delta: axis is not supported for forecast_verification_delta
+[ssigma_delta axis] 0.669093723226819
+[ssigma_delta weight] 0.669093723226819
+[ssigma_delta pandas Series ref] [0.79956694 0.68173109 0.57351347]
+[ssigma_delta small group -> NaN] [nan nan nan nan]
+[nvw axis] 0.5815355652355644
+[nvw weight] 0.5815355652355644
+[nvw pandas weight] EXC NotImplementedError: weight is not supported for _nse_variance_weighted
+[nvw 2D] EXC RuntimeError: Error computing Variance-Weighted Nash-Sutcliffe Efficiency: obs, sim and gauge must be 1-dimensional arrays.
+[nvw missing gauge] EXC RuntimeError: Error computing Variance-Weighted Nash-Sutcliffe Efficiency: nse_variance_weighted() missing 1 required positional argument: 'gauge'
+nvw check 0.5987769632081491 0.5987769632081491
+nvw equals pooled per-station ss 0.5987769632081492
+regNSE -1.6791009643205106
+[regNSE regime 365] -4.496342061252926
+[regNSE regime wrong] EXC RuntimeError: Error computing Regime Nash-Sutcliffe Efficiency (regNSE): regime must be a 1D array of length 365, got (10,)
+[regNSE str dates] -1.6791009643205106
+[regNSE pandas dt] -1.6791009643205106
+[regNSE DatetimeIndex] -1.6791009643205106
+[regNSE polars dt] -1.6791009643205106
+[regNSE xarray dt] -1.6791009643205106
+meanyear_ranked leap-year: last two values averaged; Q_reg averages positions 59/60
+mah (366,) fdc (365,)
+day index 29 Feb/1 Mar [58, 58, 59]
+[regNSE partial year (NaN in obs only)] -1.6753273266864483
+[regNSE sim NaN mismatch] EXC RuntimeError: Error computing Regime Nash-Sutcliffe Efficiency (regNSE): could not broadcast input array from shape (336,) into shape (364,)
+regNSE with a partial calendar year (Jan–Mar 2 yrs) 0.8283039202993631
+[regNSE single year regime mean == year => denominator] nan
+Q_reg from mean hydrograph, not per-year rank mean: differs
+  max |rank-mean − FDC of mean hydrograph| 2.9763719229702907
+--- Q. классификационные пограничные ---
+edi 0.49999999999999994 sedi 0.5406406330336038
+edi manual 0.49999999999999994
+sedi manual 0.5406406330336038
+edi H=1,F=0 nan sedi nan
+edi H=0 nan sedi nan
+edi F=0,H<1 nan
+edi H=1,F>0 1.0
+sedi H=1,F>0 nan
+edi without warnings? bounds check: H=.5,F=.9 -0.7361064491754329
+precision no positives nan
+f1 tp=0 nan
+positive_class=0 0.875 0.875
+accuracy multiclass 0.6666666666666666
+edi non-binary treated 1.0
+roc constant score 0.5
+pr constant score 0.5
+roc weights ignored True
+pr_auc ties 0.5833333333333333
+roc polarity worst 0.0
+--- R. метаданные и сигнатуры ---
+signature (obs: 'np.ndarray', sim: 'np.ndarray', **kwargs) -> 'float | np.ndarray'
+__name__ nse __module__ hydrometrics.core.dispatch False
+attrs {'name': 'Nash-Sutcliffe Efficiency', 'direction': 'maximize', 'bounds': (-inf, 1.0), 'reference': 'Nash & Sutcliffe (1970), DOI: 10.1080/02626667009493734'}
+regNSE __name__ regNSE ssigma name S/sigma
+registry attrs ['_numpy_funcs', '_pandas_funcs', '_polars_funcs', '_xarray_funcs', 'get_dispatcher', 'register_numpy', 'register_pandas', 'register_polars', 'register_xarray']
+get_backend_type ['numpy', 'pandas', 'xarray', 'polars', 'numpy']
+exported helper hydrometrics.backends.numpy annual day hydrometrics.backends.numpy
+direction bias minimize bounds (None, None) sharpness maximize
+positional m (pandas)
+[ssigma positional m numpy] EXC TypeError: BackendRegistry.get_dispatcher.<locals>.dispatcher() takes 2 positional arguments but 3 were given
+regNSE docstring claim shape Regime Nash-Sutcliffe Efficiency (regNSE).
+_weighted_var weights with axis
+[direct _weighted_var] (1, 3)

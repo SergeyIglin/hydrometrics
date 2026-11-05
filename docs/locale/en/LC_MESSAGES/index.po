@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Sergey Iglin
+# This file is distributed under the same license as the hydrometrics
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: hydrometrics 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-03 15:04+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+msgid "Руководство пользователя"
+msgstr "User guide"
+
+msgid "Справочник метрик"
+msgstr "Metric reference"
+
+msgid "Справочник API"
+msgstr "API reference"
+
+msgid "hydrometrics"
+msgstr "hydrometrics"
+
+msgid "Библиотека на Python для оценки гидрологических моделей и прогнозов: критерии эффективности стока, ошибки и корреляции, оценки ансамблевых и вероятностных прогнозов, показатели прогнозов событий. Одинаковый вызов работает с массивами numpy, таблицами pandas и polars и объектами xarray."
+msgstr "A Python library for evaluating hydrological models and forecasts: efficiency criteria for runoff, errors and correlations, scores for ensemble and probabilistic forecasts, and verification scores for event forecasts. The same call works with numpy arrays, pandas and polars tables and xarray objects."
+
+msgid "Для каждой метрики есть страница с формулой, диапазоном, интерпретацией, особыми случаями и примером, который выполняется при сборке документации. Начните с :doc:`user_guide/quickstart`; выбор метрики описан в :doc:`user_guide/choosing`."
+msgstr "Every metric has a page with the formula, the range, the interpretation, the special cases and an example that runs when the documentation is built. Start with :doc:`user_guide/quickstart`; the choice of a metric is covered in :doc:`user_guide/choosing`."
+

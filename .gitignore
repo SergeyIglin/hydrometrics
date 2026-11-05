@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.bak
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.hypothesis/
+docs/_build/
+docs/_legacy/_build/
+docs/api/generated/
+docs/auto_examples/

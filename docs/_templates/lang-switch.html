@@ -1,0 +1,8 @@
+{%- set other = "en" if language == "ru" else "ru" -%}
+{%- set label = "English" if language == "ru" else "Русский" -%}
+{%- if rtd_root -%}
+  {%- set target = rtd_root ~ other ~ "/" ~ rtd_version ~ "/" ~ pagename ~ ".html" -%}
+{%- else -%}
+  {%- set target = pathto("", 1) ~ "../" ~ other ~ "/" ~ pagename ~ ".html" -%}
+{%- endif -%}
+<a class="nav-link lang-switch" href="{{ target }}" hreflang="{{ other }}" lang="{{ other }}">{{ label }}</a>

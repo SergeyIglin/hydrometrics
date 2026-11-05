@@ -1,0 +1,1394 @@
+[
+[
+"api.po",
+":py:obj:`hydrometrics.MetricResult <hydrometrics.MetricResult>`\\ \\(value\\, name\\, ...\\)"
+],
+[
+"api.po",
+"Immutable container for metric computation results."
+],
+[
+"api.po",
+":py:obj:`hydrometrics.GroupedResult <hydrometrics.GroupedResult>`\\ \\(name\\, groups\\, ...\\)"
+],
+[
+"api.po",
+"Container for grouped metric results."
+],
+[
+"api.po",
+":py:obj:`hydrometrics.compute_grouped <hydrometrics.compute_grouped>`\\ \\(metric\\_func\\, ...\\)"
+],
+[
+"api.po",
+"Compute a metric per group."
+],
+[
+"api.po",
+":py:obj:`hydrometrics.core.base.metric <hydrometrics.core.base.metric>`\\ \\(name\\, ...\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+"Decorator to create a unified metric function."
+],
+[
+"api.po",
+":py:obj:`hydrometrics.core.base.MetricFunction <hydrometrics.core.base.MetricFunction>`\\ \\(func\\, ...\\)"
+],
+[
+"api.po",
+"Wrapper class for metric functions providing unified API."
+],
+[
+"api.po",
+":py:obj:`hydrometrics.validate_inputs <hydrometrics.validate_inputs>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+"Validate and convert inputs to numpy arrays with consistent NaN handling."
+],
+[
+"api.po",
+"Name of the metric."
+],
+[
+"api.po",
+"Unique group keys (as tuples even for a single grouper)."
+],
+[
+"api.po",
+"tuple[tuple, ...]"
+],
+[
+"api.po",
+"Metric value for each group, aligned with ``groups``."
+],
+[
+"api.po",
+"Names of the grouping variables."
+],
+[
+"api.po",
+"tuple[str, ...]"
+],
+[
+"api.po",
+"Additional metadata (direction, bounds, reference, parameters, nan_info)."
+],
+[
+"api.po",
+":py:obj:`__init__ <hydrometrics.GroupedResult.__init__>`\\ \\(name\\, groups\\, values\\, group\\_names\\)"
+],
+[
+"api.po",
+":py:obj:`to_dict <hydrometrics.GroupedResult.to_dict>`\\ \\(\\)"
+],
+[
+"api.po",
+":py:obj:`to_pandas <hydrometrics.GroupedResult.to_pandas>`\\ \\(\\)"
+],
+[
+"api.po",
+"Convert to a tidy pandas DataFrame (requires pandas)."
+],
+[
+"api.po",
+":py:obj:`to_xarray <hydrometrics.GroupedResult.to_xarray>`\\ \\(\\)"
+],
+[
+"api.po",
+"Convert to an xarray Dataset (requires xarray); one grouping variable only."
+],
+[
+"api.po",
+":py:obj:`name <hydrometrics.GroupedResult.name>`"
+],
+[
+"api.po",
+":py:obj:`groups <hydrometrics.GroupedResult.groups>`"
+],
+[
+"api.po",
+":py:obj:`values <hydrometrics.GroupedResult.values>`"
+],
+[
+"api.po",
+":py:obj:`group_names <hydrometrics.GroupedResult.group_names>`"
+],
+[
+"api.po",
+":py:obj:`meta <hydrometrics.GroupedResult.meta>`"
+],
+[
+"api.po",
+"The computed metric value(s)."
+],
+[
+"api.po",
+"float | np.ndarray"
+],
+[
+"api.po",
+"Human-readable name of the metric."
+],
+[
+"api.po",
+"Optimization direction: \"maximize\", \"minimize\", or \"target\" when the best value is a specific number (``optimu"
+],
+[
+"api.po",
+"Theoretical bounds (lower, upper) of the metric. Use None for unbounded sides."
+],
+[
+"api.po",
+"tuple[float | None, float | None]"
+],
+[
+"api.po",
+"Parameters used for computation (nan_policy, axis, etc.)."
+],
+[
+"api.po",
+"dict[str, Any]"
+],
+[
+"api.po",
+"DOI or citation for the metric definition."
+],
+[
+"api.po",
+"Information about NaN handling during computation. Contains keys: \"policy\", \"n_nan_removed\", \"n_total\"."
+],
+[
+"api.po",
+"Source of the reference normal used in the metric (e.g. \"mean_obs\", \"long_term_mean\", \"climatology\", \"user\", \""
+],
+[
+"api.po",
+"str or None"
+],
+[
+"api.po",
+"Additional metadata (formula, description, etc.)."
+],
+[
+"api.po",
+"The best value when ``direction`` is \"target\" (0 for bias, 1 for ratios); None otherwise."
+],
+[
+"api.po",
+"float or None"
+],
+[
+"api.po",
+":py:obj:`__init__ <hydrometrics.MetricResult.__init__>`\\ \\(value\\, name\\, direction\\, bounds\\, ...\\)"
+],
+[
+"api.po",
+":py:obj:`to_dict <hydrometrics.MetricResult.to_dict>`\\ \\(\\)"
+],
+[
+"api.po",
+"Convert to dictionary."
+],
+[
+"api.po",
+":py:obj:`is_scalar <hydrometrics.MetricResult.is_scalar>`"
+],
+[
+"api.po",
+"Check if result is a scalar value."
+],
+[
+"api.po",
+":py:obj:`norm_source <hydrometrics.MetricResult.norm_source>`"
+],
+[
+"api.po",
+":py:obj:`optimum <hydrometrics.MetricResult.optimum>`"
+],
+[
+"api.po",
+":py:obj:`scalar_value <hydrometrics.MetricResult.scalar_value>`"
+],
+[
+"api.po",
+"Get scalar value, raising if not scalar."
+],
+[
+"api.po",
+":py:obj:`value <hydrometrics.MetricResult.value>`"
+],
+[
+"api.po",
+":py:obj:`name <hydrometrics.MetricResult.name>`"
+],
+[
+"api.po",
+":py:obj:`direction <hydrometrics.MetricResult.direction>`"
+],
+[
+"api.po",
+":py:obj:`bounds <hydrometrics.MetricResult.bounds>`"
+],
+[
+"api.po",
+":py:obj:`parameters <hydrometrics.MetricResult.parameters>`"
+],
+[
+"api.po",
+":py:obj:`reference <hydrometrics.MetricResult.reference>`"
+],
+[
+"api.po",
+":py:obj:`nan_info <hydrometrics.MetricResult.nan_info>`"
+],
+[
+"api.po",
+":py:obj:`meta <hydrometrics.MetricResult.meta>`"
+],
+[
+"api.po",
+"Classification Accuracy."
+],
+[
+"api.po",
+"True class labels (integers)."
+],
+[
+"api.po",
+"Predicted class labels (integers)."
+],
+[
+"api.po",
+"Axis along which to compute; ``None`` pools all values. For xarray inputs use ``dim`` (a dimension name) or ``"
+],
+[
+"api.po",
+"Missing values (NaN) in ``obs``, ``sim`` or the weight. ``\"omit\"`` drops the affected pairs, also along an axi"
+],
+[
+"api.po",
+"Weights of the observations, same shape as ``obs``, non-negative. NaN makes the pair invalid. ``weight`` is ac"
+],
+[
+"api.po",
+"How an output with ``ndim > 0`` is reduced. By default an ``axis`` returns the array over the remaining dimens"
+],
+[
+"api.po",
+"Labelled inputs. ``\"strict\"`` raises ``ValueError`` if the indexes of two pandas objects (or the coordinates o"
+],
+[
+"api.po",
+"*float or ndarray* -- Accuracy value."
+],
+[
+"api.po",
+"If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_"
+],
+[
+"api.po",
+"If ``sample_weight`` and ``weight`` are both given."
+],
+[
+"api.po",
+"If a weight or an ``axis`` is given to a metric that does not support it."
+],
+[
+"api.po",
+"KGE alpha component (variability ratio)."
+],
+[
+"api.po",
+"Observed values."
+],
+[
+"api.po",
+"Simulated values."
+],
+[
+"api.po",
+"KGE version. It is validated but has no effect on the value: alpha is std(sim) / std(obs) in both cases. Alpha"
+],
+[
+"api.po",
+"*float or ndarray* -- Alpha value."
+],
+[
+"api.po",
+"If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_"
+],
+[
+"api.po",
+"KGE beta component (bias ratio)."
+],
+[
+"api.po",
+"*float or ndarray* -- Beta value."
+],
+[
+"api.po",
+"Bias (Mean Error)."
+],
+[
+"api.po",
+"*float or ndarray* -- Bias value."
+],
+[
+"api.po",
+"Brier Score for binary events."
+],
+[
+"api.po",
+"A ``ValueError`` is raised if ``obs`` holds a value other than 0 or 1, or ``sim`` a value outside [0, 1]. Miss"
+],
+[
+"api.po",
+"Binary observed outcomes (0 or 1)."
+],
+[
+"api.po",
+"Forecast probabilities in [0, 1]."
+],
+[
+"api.po",
+"*float or ndarray* -- Brier Score value."
+],
+[
+"api.po",
+"Brier (1950), DOI: 10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2"
+],
+[
+"api.po",
+"Murphy (1973), DOI: 10.1175/1520-0450(1973)012<0595:ANVPOT>2.0.CO;2"
+],
+[
+"api.po",
+"A HydroMetrics metric function (decorated with @metric / dispatcher)."
+],
+[
+"api.po",
+"The container holding obs/sim and grouping variables. May be None when group_by is a dict and obs/sim are arra"
+],
+[
+"api.po",
+"Observed and simulated values. When ``data`` is a DataFrame, these may be column names; otherwise they are arr"
+],
+[
+"api.po",
+"Grouping specification."
+],
+[
+"api.po",
+"Additional parameters forwarded to the metric."
+],
+[
+"api.po",
+"This class is used internally by the @metric decorator. The NumPy path calls it directly; the pandas, polars a"
+],
+[
+"api.po",
+":py:obj:`__init__ <hydrometrics.core.base.MetricFunction.__init__>`\\ \\(func\\, name\\, direction\\, bounds\\, ...\\"
+],
+[
+"api.po",
+":py:obj:`compute <hydrometrics.core.base.MetricFunction.compute>`\\ \\(obs\\, sim\\, \\*\\[\\, sample\\_weight\\, ...\\]"
+],
+[
+"api.po",
+"Shared implementation behind every backend; see :meth:`__call__`."
+],
+[
+"api.po",
+"Optimization direction; \"target\" means the best value is ``optimum``."
+],
+[
+"api.po",
+"Theoretical bounds (lower, upper). Use None for unbounded."
+],
+[
+"api.po",
+"DOI or citation reference."
+],
+[
+"api.po",
+"Description of the metric."
+],
+[
+"api.po",
+"LaTeX formula."
+],
+[
+"api.po",
+"If False, a ``sample_weight`` raises ``NotImplementedError``."
+],
+[
+"api.po",
+"If False, an ``axis`` raises ``NotImplementedError``."
+],
+[
+"api.po",
+"Best value of a \"target\" metric."
+],
+[
+"api.po",
+"*Callable* -- Decorated function with unified API."
+],
+[
+"api.po",
+"Continuous Ranked Probability Score (CRPS)."
+],
+[
+"api.po",
+"Observed values, shape (n_samples,) or (n_samples, n_stations, ...)."
+],
+[
+"api.po",
+"Forecast values. Deterministic forecast: same shape as ``obs``; the score is the absolute error. Ensemble fore"
+],
+[
+"api.po",
+"Ensemble forecasts only. ``False`` is the classical estimator, ``mean_j |X_j - o| - 0.5 * sum_jk |X_j - X_k| /"
+],
+[
+"api.po",
+"*float or ndarray* -- CRPS value, in the units of ``obs``."
+],
+[
+"api.po",
+"If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_"
+],
+[
+"api.po",
+"Both estimators are non-negative, so ``bounds=(0, None)`` holds for ``fair=False`` and ``fair=True``: by the t"
+],
+[
+"api.po",
+"Hersbach (2000), DOI: 10.1175/1520-0434(2000)015<0559:DOTCRP>2.0.CO;2"
+],
+[
+"api.po",
+"Gneiting & Raftery (2007), DOI: 10.1198/016214506000001437"
+],
+[
+"api.po",
+"Ferro (2014), DOI: 10.1002/qj.2270"
+],
+[
+"api.po",
+"Continuous Ranked Probability Skill Score (CRPSS)."
+],
+[
+"api.po",
+"CRPSS = 1 - mean(CRPS) / mean(CRPS_ref): the ratio of the means over ``axis``, not the mean of per-observation"
+],
+[
+"api.po",
+"Forecast values: same shape as ``obs`` or ``obs.shape + (n_members,)``."
+],
+[
+"api.po",
+"Reference forecast for skill score, deterministic or an ensemble. If None, the (weighted) mean of the observat"
+],
+[
+"api.po",
+"*float or ndarray* -- CRPSS value."
+],
+[
+"api.po",
+"Extremal Dependence Index (EDI)."
+],
+[
+"api.po",
+"True binary labels (0 or 1)."
+],
+[
+"api.po",
+"Predicted binary labels (0 or 1)."
+],
+[
+"api.po",
+"*float or ndarray* -- EDI value in [-1, 1]."
+],
+[
+"api.po",
+"H = TP / (TP + FN)  -- hit rate F = FP / (FP + TN)  -- false alarm rate EDI = (log F - log H) / (log F + log H"
+],
+[
+"api.po",
+"A perfect forecast (H = 1 and F = 0) is defined to give 1. In the other cases with H = 0 or F = 0 the result i"
+],
+[
+"api.po",
+"Ferro, C. A. T., & Stephenson, D. B. (2011). Extremal Dependence Indices: Improved Verification Measures for D"
+],
+[
+"api.po",
+"F1 Score for binary classification."
+],
+[
+"api.po",
+"Class label considered as positive."
+],
+[
+"api.po",
+"*float or ndarray* -- F1 Score value."
+],
+[
+"api.po",
+"Forecast verification criterion for hydrological forecasts."
+],
+[
+"api.po",
+"A forecast is considered verified when its absolute error is less than 0.674 times the sample standard deviati"
+],
+[
+"api.po",
+"Forecast or simulated values."
+],
+[
+"api.po",
+"Not supported by this metric: a weight (or its alias ``weight``) raises ``NotImplementedError``."
+],
+[
+"api.po",
+"*float or np.ndarray* -- With ``reduction=\"mean\"``, the fraction of verified forecasts. With ``reduction=\"none"
+],
+[
+"api.po",
+"Georgievsky, Y. M., & Shanochkin, S. V. (2007). Hydrological Forecasts."
+],
+[
+"api.po",
+"Calculate the forecast verification criterion based on forecast errors."
+],
+[
+"api.po",
+"For each reference date, the sample standard deviation (``ddof=1``) of the forecast errors ``sim - obs`` is ca"
+],
+[
+"api.po",
+"Here sigma_delta is the spread of the forecast errors ``sim - obs`` within a reference-date group."
+],
+[
+"api.po",
+"Simulated or forecast values."
+],
+[
+"api.po",
+"Reference dates used to group forecast errors."
+],
+[
+"api.po",
+"Not supported by this metric: any other value raises ``NotImplementedError``."
+],
+[
+"api.po",
+"*float or np.ndarray* -- With ``reduction=\"mean\"``, the fraction of verified forecasts. With ``reduction=\"none"
+],
+[
+"api.po",
+"Georgievsky & Shanochkin (2007), *Hydrological Forecasts*."
+],
+[
+"api.po",
+"KGE gamma component (coefficient of variation ratio)."
+],
+[
+"api.po",
+"*float or ndarray* -- Gamma value."
+],
+[
+"api.po",
+"Kendall's Tau Rank Correlation."
+],
+[
+"api.po",
+"*float or ndarray* -- Kendall's tau value."
+],
+[
+"api.po",
+"Kling-Gupta Efficiency (KGE) 2009 version."
+],
+[
+"api.po",
+"*float or ndarray* -- KGE value."
+],
+[
+"api.po",
+"Gupta et al. (2009), DOI: 10.1016/j.jhydrol.2009.08.003"
+],
+[
+"api.po",
+"Kling-Gupta Efficiency (KGE') 2012 version."
+],
+[
+"api.po",
+"KGE' = 1 - sqrt((r - 1)^2 + (beta - 1)^2 + (gamma - 1)^2) with beta = mean(sim) / mean(obs) and gamma = (std(s"
+],
+[
+"api.po",
+"Kling et al. (2012), DOI: 10.1016/j.jhydrol.2012.01.011"
+],
+[
+"api.po",
+"Compute all KGE components."
+],
+[
+"api.po",
+"KGE version. It decides which components are returned: ``gamma`` is added for \"2012\". The values of ``r``, ``a"
+],
+[
+"api.po",
+"*dict* -- Dictionary with keys: 'r', 'alpha', 'beta', 'gamma' (if version=2012). KGE 2009 is 1 - sqrt((r - 1)^"
+],
+[
+"api.po",
+"Log-transformed NSE (LogNSE)."
+],
+[
+"api.po",
+"Observed values (must be >= 0)."
+],
+[
+"api.po",
+"Simulated values (must be >= 0)."
+],
+[
+"api.po",
+"Small constant added before log to avoid log(0)."
+],
+[
+"api.po",
+"*float or ndarray* -- LogNSE value."
+],
+[
+"api.po",
+"Krause et al. (2005), DOI: 10.5194/adgeo-5-89-2005"
+],
+[
+"api.po",
+"Mean Absolute Error (MAE)."
+],
+[
+"api.po",
+"*float or ndarray* -- MAE value."
+],
+[
+"api.po",
+"Willmott & Matsuura (2005), DOI: 10.3354/cr030079"
+],
+[
+"api.po",
+"Modified NSE (mNSE)."
+],
+[
+"api.po",
+"Reference value for normalization. If None, uses mean of observations."
+],
+[
+"api.po",
+"*float or ndarray* -- Modified NSE value."
+],
+[
+"api.po",
+"Mean Squared Error (MSE)."
+],
+[
+"api.po",
+"*float or ndarray* -- MSE value."
+],
+[
+"api.po",
+"Normalized Root Mean Squared Error (NRMSE)."
+],
+[
+"api.po",
+"Normalization method: - \"mean\": divide by mean of observations - \"std\": divide by standard deviation of observ"
+],
+[
+"api.po",
+"*float or ndarray* -- NRMSE value."
+],
+[
+"api.po",
+"Nash-Sutcliffe Efficiency (NSE)."
+],
+[
+"api.po",
+"Reference value for normalization (climatological norm). If None, uses mean of observations."
+],
+[
+"api.po",
+"*float or ndarray* -- NSE value."
+],
+[
+"api.po",
+"Nash & Sutcliffe (1970), DOI: 10.1016/0022-1694(70)90255-6"
+],
+[
+"api.po",
+"Moriasi et al. (2007), DOI: 10.13031/2013.23153 (performance ratings)"
+],
+[
+"api.po",
+"Bounded NSE."
+],
+[
+"api.po",
+"``NSE / (2 - NSE)``, a bounded transform of NSE with values in (-1, 1] and value 0 at NSE = 0. It ranks models"
+],
+[
+"api.po",
+"*float or ndarray* -- Bounded NSE value in (-1, 1]."
+],
+[
+"api.po",
+"No verified primary source"
+],
+[
+"api.po",
+"Variance-weighted Nash-Sutcliffe Efficiency across gauges."
+],
+[
+"api.po",
+"Computes NSE separately for each gauge and combines the gauge-specific scores using the variance of observed v"
+],
+[
+"api.po",
+"Gauge labels identifying the observation station for each paired observed and simulated value."
+],
+[
+"api.po",
+"*float* -- Variance-weighted mean NSE across gauges, or NaN if no valid gauge scores with positive observed va"
+],
+[
+"api.po",
+"Gartsman, B. I., Solomatine, D. P., & Gubareva, T. S. (2024). A Method of Multi-Site Calibration of Distribute"
+],
+[
+"api.po",
+"Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through conceptual models. Part I — A discussio"
+],
+[
+"api.po",
+"Percent Bias (PBIAS)."
+],
+[
+"api.po",
+"PBIAS = 100 * sum(sim - obs) / sum(obs). A positive value means overestimation by the model, consistent with `"
+],
+[
+"api.po",
+"The sign is opposite to the definition of Moriasi et al. (2007), who use ``obs - sim`` (citing Gupta et al., 1"
+],
+[
+"api.po",
+"*float or ndarray* -- PBIAS value in percent."
+],
+[
+"api.po",
+"Gupta et al. (1999), DOI: 10.1061/(ASCE)1084-0699(1999)4:2(135)"
+],
+[
+"api.po",
+"Moriasi et al. (2007), DOI: 10.13031/2013.23153"
+],
+[
+"api.po",
+"Pearson Correlation Coefficient."
+],
+[
+"api.po",
+"*float or ndarray* -- Pearson r value."
+],
+[
+"api.po",
+"PR AUC (Average Precision) for binary classification."
+],
+[
+"api.po",
+"Predicted probabilities or scores for positive class."
+],
+[
+"api.po",
+"*float or ndarray* -- PR AUC value."
+],
+[
+"api.po",
+"Davis & Goadrich (2006), DOI: 10.1145/1143844.1143874"
+],
+[
+"api.po",
+"Precision for binary classification."
+],
+[
+"api.po",
+"*float or ndarray* -- Precision value."
+],
+[
+"api.po",
+"Coefficient of Determination (R²)."
+],
+[
+"api.po",
+"*float or ndarray* -- R² value."
+],
+[
+"api.po",
+"KGE r component (Pearson correlation)."
+],
+[
+"api.po",
+"*float or ndarray* -- Correlation value."
+],
+[
+"api.po",
+"Recall (Sensitivity) for binary classification."
+],
+[
+"api.po",
+"*float or ndarray* -- Recall value."
+],
+[
+"api.po",
+"Regime Nash-Sutcliffe Efficiency (regNSE)."
+],
+[
+"api.po",
+"Evaluates simulated annual flow-duration curves against observed curves using a reference regime curve: the fl"
+],
+[
+"api.po",
+"One-dimensional array of observed values."
+],
+[
+"api.po",
+"One-dimensional array of simulated values."
+],
+[
+"api.po",
+"One-dimensional array of dates corresponding to the observations and simulations."
+],
+[
+"api.po",
+"Precomputed reference regime curve, with shape (365,). If None, the curve is calculated from observed data."
+],
+[
+"api.po",
+"*float* -- Regime NSE value. Returns NaN if no usable years are available or the denominator is zero."
+],
+[
+"api.po",
+"Gartsman, B. I. (2023). Assessing the quality of modeling and forecasting in hydrology – reasoning about the m"
+],
+[
+"api.po",
+"Reliability (calibration) term of the Brier score decomposition of Murphy (1973): sum_k n_k / n * (mean(p_k) -"
+],
+[
+"api.po",
+"The forecast probabilities are grouped into ``n_bins`` equal-width bins on [0, 1]. Bins are half-open, [a, b);"
+],
+[
+"api.po",
+"Number of probability bins for reliability diagram; an integer, at least 1."
+],
+[
+"api.po",
+"*float or ndarray* -- Reliability value."
+],
+[
+"api.po",
+"Bröcker & Smith (2007), DOI: 10.1175/WAF993.1"
+],
+[
+"api.po",
+"Root Mean Squared Error (RMSE)."
+],
+[
+"api.po",
+"*float or ndarray* -- RMSE value."
+],
+[
+"api.po",
+"ROC AUC for binary classification."
+],
+[
+"api.po",
+"*float or ndarray* -- ROC AUC value."
+],
+[
+"api.po",
+"Fawcett (2006), DOI: 10.1016/j.patrec.2005.10.010"
+],
+[
+"api.po",
+"Ratio of RMSE to Standard Deviation of Observations (RSR)."
+],
+[
+"api.po",
+"*float or ndarray* -- RSR value."
+],
+[
+"api.po",
+"Symmetric Extremal Dependence Index (SEDI)."
+],
+[
+"api.po",
+"*float or ndarray* -- SEDI value."
+],
+[
+"api.po",
+"With the hit rate H = TP / (TP + FN) and the false alarm rate F = FP / (FP + TN), a perfect forecast (H = 1 an"
+],
+[
+"api.po",
+"Ferro & Stephenson (2011), DOI: 10.1175/WAF-D-10-05030.1"
+],
+[
+"api.po",
+"Sharpness of probability forecasts, measured as the variance of the forecast probabilities."
+],
+[
+"api.po",
+"This is not a term of the Murphy (1973) decomposition of the Brier score: the terms of that decomposition are "
+],
+[
+"api.po",
+"Binary observed outcomes (0 or 1). Not used in calculation but required for API consistency."
+],
+[
+"api.po",
+"*float or ndarray* -- Sharpness value (variance of forecast probabilities)."
+],
+[
+"api.po",
+"Spearman Rank Correlation."
+],
+[
+"api.po",
+"*float or ndarray* -- Spearman rho value."
+],
+[
+"api.po",
+"S/sigma hydrological model performance criterion."
+],
+[
+"api.po",
+"Measures the root mean squared residual error relative to the sample standard deviation of observed values. Al"
+],
+[
+"api.po",
+"Number of fitted parameters used in the error degrees-of-freedom adjustment; a finite non-negative number (``V"
+],
+[
+"api.po",
+"*float or np.ndarray* -- Ratio of the adjusted root mean squared residual error to the sample standard deviati"
+],
+[
+"api.po",
+"Group-wise S/sigma_delta criterion for short-term hydrological forecasts."
+],
+[
+"api.po",
+"The metric is calculated independently for each group identified by ref_date. Each group's score is assigned t"
+],
+[
+"api.po",
+"Here sigma is the sample standard deviation (``ddof=1``) of the observed values within a reference-date group."
+],
+[
+"api.po",
+"Simulated or forecast values, with the same shape as obs."
+],
+[
+"api.po",
+"Group labels (e.g. reference dates), with the same shape as obs and sim."
+],
+[
+"api.po",
+"Number of fitted parameters used in the error degrees-of-freedom adjustment; a finite non-negative number (``V"
+],
+[
+"api.po",
+"*float or np.ndarray* -- By default the mean of the valid scores. With ``reduction=\"none\"`` the array of group"
+],
+[
+"api.po",
+"Simulated values. An ensemble has one extra trailing axis, ``obs.shape + (n_members,)``."
+],
+[
+"api.po",
+"Axis along which a metric will be computed. It only matters for the ``\"propagate\"`` policy, where it defines w"
+],
+[
+"api.po",
+"How to handle NaN values. ``\"omit\"`` makes the removal pairwise: wherever ``obs``, ``sim`` or the weight is Na"
+],
+[
+"api.po",
+"Sample weights for weighted metrics, same shape as ``obs``, non-negative."
+],
+[
+"api.po",
+"* **obs_arr** (*np.ndarray*) -- Validated observed values as numpy array. * **sim_arr** (*np.ndarray*) -- Vali"
+],
+[
+"api.po",
+"**obs_arr** (*np.ndarray*) -- Validated observed values as numpy array."
+],
+[
+"api.po",
+"**sim_arr** (*np.ndarray*) -- Validated simulated values as numpy array."
+],
+[
+"api.po",
+"**weight_arr** (*np.ndarray or None*) -- Validated weights as numpy array."
+],
+[
+"api.po",
+"**nan_info** (*dict*) -- ``{\"policy\", \"n_nan_removed\", \"n_total\"}``: the policy, the number of pairs removed ("
+],
+[
+"api.po",
+"If inputs have incompatible shapes, weights are negative or of a wrong shape,     the policy is unknown, or Na"
+],
+[
+"api.po",
+"Volumetric Efficiency (VE)."
+],
+[
+"api.po",
+"*float or ndarray* -- VE value."
+],
+[
+"api.po",
+"Criss & Winston (2008), DOI: 10.1002/hyp.7072"
+],
+[
+"api.po",
+"Weighted Continuous Ranked Probability Score (Weighted CRPS)."
+],
+[
+"api.po",
+"The classical CRPS of every observation is averaged with the weights ``weight_func(obs) * weight``. This weigh"
+],
+[
+"api.po",
+"Forecast values: same shape as ``obs`` (deterministic) or ``obs.shape + (n_members,)`` (ensemble)."
+],
+[
+"api.po",
+"Weight function w(y) applied to observations. Default: uniform weight (standard CRPS). Examples: lambda y: 1/y"
+],
+[
+"api.po",
+"*float or ndarray* -- Weighted CRPS value."
+],
+[
+"api.po",
+"Gneiting & Ranjan (2011), DOI: 10.1198/jbes.2010.08110"
+],
+[
+"api.po",
+"Willmott's Index of Agreement (d)."
+],
+[
+"api.po",
+"Implements the original index of Willmott (1981), ``d = 1 - sum((O - P)^2) / sum((|P - mean(O)| + |O - mean(O)"
+],
+[
+"api.po",
+"*float or ndarray* -- Willmott's d value."
+],
+[
+"api.po",
+"Willmott (1981), DOI: 10.1080/02723646.1981.10642213"
+],
+[
+"api.po",
+"Willmott et al. (2012), DOI: 10.1002/joc.2419"
+],
+[
+"api.po",
+"Compute mean annual hydrograph."
+],
+[
+"api.po",
+"Returns 366 values if the input series contains any leap year, otherwise 365 values. 29 February is kept as it"
+],
+[
+"api.po",
+"Observed discharge values, one-dimensional."
+],
+[
+"api.po",
+"Observation dates, same shape as ``obs``."
+],
+[
+"api.po",
+"*np.ndarray* -- Mean discharge for each calendar day (365 or 366 values)."
+],
+[
+"api.po",
+"Compute a flow duration curve based on the mean annual hydrograph."
+],
+[
+"api.po",
+"Compute the mean annual hydrograph (365 or 366 values)."
+],
+[
+"api.po",
+"Sort it in descending order."
+],
+[
+"api.po",
+"If the result has 366 values, average the values at ranks 365 and 366 of the descending ranking (the two small"
+],
+[
+"api.po",
+"Observed discharge values."
+],
+[
+"api.po",
+"Observation dates."
+],
+[
+"api.po",
+"*np.ndarray* -- Flow duration curve with 365 values, sorted in descending order."
+],
+[
+"api.po",
+"import numpy as np\nimport hydrometrics as hm\n\ndates = np.arange(\"2011-10-01\", \"2013-10-01\", dtype=\"datetime64["
+],
+[
+"api.po",
+"(366,) (365,)\nTrue 170.0 20.0"
+],
+[
+"api.po",
+"import hydrometrics as hm\n\nprint(type(hm.registry).__name__)\nprint(hm.registry.get_dispatcher(\"nse\").__name__)"
+],
+[
+"api.po",
+"import numpy as np\nimport pandas as pd\nfrom hydrometrics.core.base import metric\nfrom hydrometrics.core.dispat"
+],
+[
+"api.po",
+"1.0571 target 1"
+],
+[
+"api.po",
+"Registry of metric functions, one implementation per backend."
+],
+[
+"api.po",
+"Each metric is registered under a name for the backends it supports (``register_numpy``, ``register_pandas``, "
+],
+[
+"api.po",
+"Register the NumPy implementation of metric ``name`` (also the fallback for the others)."
+],
+[
+"api.po",
+"Register the implementation used for pandas ``Series`` and ``DataFrame`` inputs."
+],
+[
+"api.po",
+"Register the implementation used for xarray ``DataArray`` and ``Dataset`` inputs."
+],
+[
+"api.po",
+"Register the implementation used for polars ``Series`` and ``DataFrame`` inputs."
+],
+[
+"api.po",
+"Create a dispatching function for a given metric name."
+],
+[
+"api.po",
+"The function takes ``(obs, sim, **kwargs)``, chooses the backend from the input types (xarray, then pandas, th"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.mae <hydrometrics.mae>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.mse <hydrometrics.mse>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.rmse <hydrometrics.rmse>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.nrmse <hydrometrics.nrmse>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.bias <hydrometrics.bias>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.pbias <hydrometrics.pbias>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.pearson_r <hydrometrics.pearson_r>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.spearman_r <hydrometrics.spearman_r>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.kendall_tau <hydrometrics.kendall_tau>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.r2 <hydrometrics.r2>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.willmott_d <hydrometrics.willmott_d>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.nse <hydrometrics.nse>`\\ \\(obs\\, sim\\, \\*\\[\\, norm\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.log_nse <hydrometrics.log_nse>`\\ \\(obs\\, sim\\, \\*\\[\\, eps\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.modified_nse <hydrometrics.modified_nse>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.nse_bounded <hydrometrics.nse_bounded>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.nse_variance_weighted <hydrometrics.nse_variance_weighted>`\\ \\(obs\\, sim\\, ...\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.regNSE <hydrometrics.regNSE>`\\ \\(obs\\, sim\\, \\*\\, dates\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.rsr <hydrometrics.rsr>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.ve <hydrometrics.ve>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.kge_2009 <hydrometrics.kge_2009>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.kge_2012 <hydrometrics.kge_2012>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.kge_components <hydrometrics.kge_components>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.r_component <hydrometrics.r_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.alpha_component <hydrometrics.alpha_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.beta_component <hydrometrics.beta_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.gamma_component <hydrometrics.gamma_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.ssigma <hydrometrics.ssigma>`\\ \\(obs\\, sim\\, \\*\\[\\, m\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.ssigma_delta <hydrometrics.ssigma_delta>`\\ \\(obs\\, sim\\, \\*\\, ref\\_date\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.forecast_verification <hydrometrics.forecast_verification>`\\ \\(obs\\, sim\\, \\*\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.forecast_verification_delta <hydrometrics.forecast_verification_delta>`\\ \\(...\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.crps <hydrometrics.crps>`\\ \\(obs\\, sim\\, \\*\\[\\, fair\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.weighted_crps <hydrometrics.weighted_crps>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.crpss <hydrometrics.crpss>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.brier_score <hydrometrics.brier_score>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.reliability <hydrometrics.reliability>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.sharpness <hydrometrics.sharpness>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.accuracy <hydrometrics.accuracy>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.precision <hydrometrics.precision>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.recall <hydrometrics.recall>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.f1_score <hydrometrics.f1_score>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.roc_auc <hydrometrics.roc_auc>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.pr_auc <hydrometrics.pr_auc>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.edi <hydrometrics.edi>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"api.po",
+":py:obj:`hydrometrics.sedi <hydrometrics.sedi>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+],
+[
+"auto_examples.po",
+"`Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_"
+]
+]

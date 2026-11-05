@@ -1,0 +1,1423 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Sergey Iglin
+# This file is distributed under the same license as the hydrometrics
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: hydrometrics 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-05 14:34+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+msgid "Бэкенды"
+msgstr "Backends"
+
+msgid "Модули ``hydrometrics.backends.numpy``, ``hydrometrics.backends.pandas``, ``hydrometrics.backends.polars`` и ``hydrometrics.backends.xarray`` не предназначены для прямого вызова. Модуль numpy содержит ядра расчёта (функции с префиксом ``_``), остальные модули переводят входы в массивы numpy и упаковывают результат. Пользователь вызывает функции верхнего уровня ``hydrometrics.<имя метрики>``, диспетчер сам выбирает бэкенд (см. :doc:`/user_guide/backends`)."
+msgstr "The modules ``hydrometrics.backends.numpy``, ``hydrometrics.backends.pandas``, ``hydrometrics.backends.polars`` and ``hydrometrics.backends.xarray`` are not meant to be called directly. The numpy module holds the computing kernels (functions with the prefix ``_``); the other modules convert inputs to numpy arrays and pack the result. A user calls the top-level functions ``hydrometrics.<metric name>``, and the dispatcher selects the backend itself (see :doc:`/user_guide/backends`)."
+
+msgid "Из модуля numpy публичны две функции для режимных кривых: :func:`~hydrometrics.mean_annual_hydrograph` и :func:`~hydrometrics.mean_annual_hydrograph_duration_curve` (:doc:`helpers`). Ядра метрик отдельно не документируются: их описание это определение на странице метрики."
+msgstr "Two functions for regime curves are public in the numpy module: :func:`~hydrometrics.mean_annual_hydrograph` and :func:`~hydrometrics.mean_annual_hydrograph_duration_curve` (:doc:`helpers`). The metric kernels are not documented separately: their description is the definition on the metric page."
+
+msgid "Результаты, группировка и ядро"
+msgstr "Results, grouping and the core"
+
+msgid "Результаты"
+msgstr "Results"
+
+msgid ":py:obj:`hydrometrics.MetricResult <hydrometrics.MetricResult>`\\ \\(value\\, name\\, ...\\)"
+msgstr ":py:obj:`hydrometrics.MetricResult <hydrometrics.MetricResult>`\\ \\(value\\, name\\, ...\\)"
+
+msgid "Immutable container for metric computation results."
+msgstr "Immutable container for metric computation results."
+
+msgid ":py:obj:`hydrometrics.GroupedResult <hydrometrics.GroupedResult>`\\ \\(name\\, groups\\, ...\\)"
+msgstr ":py:obj:`hydrometrics.GroupedResult <hydrometrics.GroupedResult>`\\ \\(name\\, groups\\, ...\\)"
+
+msgid "Container for grouped metric results."
+msgstr "Container for grouped metric results."
+
+msgid ":py:obj:`hydrometrics.compute_grouped <hydrometrics.compute_grouped>`\\ \\(metric\\_func\\, ...\\)"
+msgstr ":py:obj:`hydrometrics.compute_grouped <hydrometrics.compute_grouped>`\\ \\(metric\\_func\\, ...\\)"
+
+msgid "Compute a metric per group."
+msgstr "Compute a metric per group."
+
+msgid "Создание метрик"
+msgstr "Defining metrics"
+
+msgid ":py:obj:`hydrometrics.core.base.metric <hydrometrics.core.base.metric>`\\ \\(name\\, ...\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.core.base.metric <hydrometrics.core.base.metric>`\\ \\(name\\, ...\\[\\, ...\\]\\)"
+
+msgid "Decorator to create a unified metric function."
+msgstr "Decorator to create a unified metric function."
+
+msgid ":py:obj:`hydrometrics.core.base.MetricFunction <hydrometrics.core.base.MetricFunction>`\\ \\(func\\, ...\\)"
+msgstr ":py:obj:`hydrometrics.core.base.MetricFunction <hydrometrics.core.base.MetricFunction>`\\ \\(func\\, ...\\)"
+
+msgid "Wrapper class for metric functions providing unified API."
+msgstr "Wrapper class for metric functions providing unified API."
+
+msgid "Проверка входных данных"
+msgstr "Input validation"
+
+msgid ":py:obj:`hydrometrics.validate_inputs <hydrometrics.validate_inputs>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.validate_inputs <hydrometrics.validate_inputs>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid "Validate and convert inputs to numpy arrays with consistent NaN handling."
+msgstr "Validate and convert inputs to numpy arrays with consistent NaN handling."
+
+msgid "hydrometrics.GroupedResult"
+msgstr "hydrometrics.GroupedResult"
+
+msgid "Name of the metric."
+msgstr "Name of the metric."
+
+msgid "type"
+msgstr "type"
+
+msgid "str"
+msgstr "str"
+
+msgid "Unique group keys (as tuples even for a single grouper)."
+msgstr "Unique group keys (as tuples even for a single grouper)."
+
+msgid "tuple[tuple, ...]"
+msgstr "tuple[tuple, ...]"
+
+msgid "Metric value for each group, aligned with ``groups``."
+msgstr "Metric value for each group, aligned with ``groups``."
+
+msgid "np.ndarray"
+msgstr "np.ndarray"
+
+msgid "Names of the grouping variables."
+msgstr "Names of the grouping variables."
+
+msgid "tuple[str, ...]"
+msgstr "tuple[str, ...]"
+
+msgid "Additional metadata (direction, bounds, reference, parameters, nan_info)."
+msgstr "Additional metadata (direction, bounds, reference, parameters, nan_info)."
+
+msgid "dict"
+msgstr "dict"
+
+msgid "Methods"
+msgstr "Methods"
+
+msgid ":py:obj:`__init__ <hydrometrics.GroupedResult.__init__>`\\ \\(name\\, groups\\, values\\, group\\_names\\)"
+msgstr ":py:obj:`__init__ <hydrometrics.GroupedResult.__init__>`\\ \\(name\\, groups\\, values\\, group\\_names\\)"
+
+msgid ":py:obj:`to_dict <hydrometrics.GroupedResult.to_dict>`\\ \\(\\)"
+msgstr ":py:obj:`to_dict <hydrometrics.GroupedResult.to_dict>`\\ \\(\\)"
+
+msgid ":py:obj:`to_pandas <hydrometrics.GroupedResult.to_pandas>`\\ \\(\\)"
+msgstr ":py:obj:`to_pandas <hydrometrics.GroupedResult.to_pandas>`\\ \\(\\)"
+
+msgid "Convert to a tidy pandas DataFrame (requires pandas)."
+msgstr "Convert to a tidy pandas DataFrame (requires pandas)."
+
+msgid ":py:obj:`to_xarray <hydrometrics.GroupedResult.to_xarray>`\\ \\(\\)"
+msgstr ":py:obj:`to_xarray <hydrometrics.GroupedResult.to_xarray>`\\ \\(\\)"
+
+msgid "Convert to an xarray Dataset (requires xarray); one grouping variable only."
+msgstr "Convert to an xarray Dataset (requires xarray); one grouping variable only."
+
+msgid "Attributes"
+msgstr "Attributes"
+
+msgid ":py:obj:`name <hydrometrics.GroupedResult.name>`"
+msgstr ":py:obj:`name <hydrometrics.GroupedResult.name>`"
+
+msgid ":py:obj:`groups <hydrometrics.GroupedResult.groups>`"
+msgstr ":py:obj:`groups <hydrometrics.GroupedResult.groups>`"
+
+msgid ":py:obj:`values <hydrometrics.GroupedResult.values>`"
+msgstr ":py:obj:`values <hydrometrics.GroupedResult.values>`"
+
+msgid ":py:obj:`group_names <hydrometrics.GroupedResult.group_names>`"
+msgstr ":py:obj:`group_names <hydrometrics.GroupedResult.group_names>`"
+
+msgid ":py:obj:`meta <hydrometrics.GroupedResult.meta>`"
+msgstr ":py:obj:`meta <hydrometrics.GroupedResult.meta>`"
+
+msgid "hydrometrics.MetricResult"
+msgstr "hydrometrics.MetricResult"
+
+msgid "The computed metric value(s)."
+msgstr "The computed metric value(s)."
+
+msgid "float | np.ndarray"
+msgstr "float | np.ndarray"
+
+msgid "Human-readable name of the metric."
+msgstr "Human-readable name of the metric."
+
+msgid "Optimization direction: \"maximize\", \"minimize\", or \"target\" when the best value is a specific number (``optimum``) rather than an end of the range, as for bias or a ratio that should equal 1."
+msgstr "Optimization direction: \"maximize\", \"minimize\", or \"target\" when the best value is a specific number (``optimum``) rather than an end of the range, as for bias or a ratio that should equal 1."
+
+msgid "Theoretical bounds (lower, upper) of the metric. Use None for unbounded sides."
+msgstr "Theoretical bounds (lower, upper) of the metric. Use None for unbounded sides."
+
+msgid "tuple[float | None, float | None]"
+msgstr "tuple[float | None, float | None]"
+
+msgid "Parameters used for computation (nan_policy, axis, etc.)."
+msgstr "Parameters used for computation (nan_policy, axis, etc.)."
+
+msgid "dict[str, Any]"
+msgstr "dict[str, Any]"
+
+msgid "DOI or citation for the metric definition."
+msgstr "DOI or citation for the metric definition."
+
+msgid "Information about NaN handling during computation. Contains keys: \"policy\", \"n_nan_removed\", \"n_total\"."
+msgstr "Information about NaN handling during computation. Contains keys: \"policy\", \"n_nan_removed\", \"n_total\"."
+
+msgid "Source of the reference normal used in the metric (e.g. \"mean_obs\", \"long_term_mean\", \"climatology\", \"user\", \"regime\"). Stored for provenance and metadata requirements."
+msgstr "Source of the reference normal used in the metric (e.g. \"mean_obs\", \"long_term_mean\", \"climatology\", \"user\", \"regime\"). Stored for provenance and metadata requirements."
+
+msgid "str or None"
+msgstr "str or None"
+
+msgid "Additional metadata (formula, description, etc.)."
+msgstr "Additional metadata (formula, description, etc.)."
+
+msgid "The best value when ``direction`` is \"target\" (0 for bias, 1 for ratios); None otherwise."
+msgstr "The best value when ``direction`` is \"target\" (0 for bias, 1 for ratios); None otherwise."
+
+msgid "float or None"
+msgstr "float or None"
+
+msgid ":py:obj:`__init__ <hydrometrics.MetricResult.__init__>`\\ \\(value\\, name\\, direction\\, bounds\\, ...\\)"
+msgstr ":py:obj:`__init__ <hydrometrics.MetricResult.__init__>`\\ \\(value\\, name\\, direction\\, bounds\\, ...\\)"
+
+msgid ":py:obj:`to_dict <hydrometrics.MetricResult.to_dict>`\\ \\(\\)"
+msgstr ":py:obj:`to_dict <hydrometrics.MetricResult.to_dict>`\\ \\(\\)"
+
+msgid "Convert to dictionary."
+msgstr "Convert to dictionary."
+
+msgid ":py:obj:`is_scalar <hydrometrics.MetricResult.is_scalar>`"
+msgstr ":py:obj:`is_scalar <hydrometrics.MetricResult.is_scalar>`"
+
+msgid "Check if result is a scalar value."
+msgstr "Check if result is a scalar value."
+
+msgid ":py:obj:`norm_source <hydrometrics.MetricResult.norm_source>`"
+msgstr ":py:obj:`norm_source <hydrometrics.MetricResult.norm_source>`"
+
+msgid ":py:obj:`optimum <hydrometrics.MetricResult.optimum>`"
+msgstr ":py:obj:`optimum <hydrometrics.MetricResult.optimum>`"
+
+msgid ":py:obj:`scalar_value <hydrometrics.MetricResult.scalar_value>`"
+msgstr ":py:obj:`scalar_value <hydrometrics.MetricResult.scalar_value>`"
+
+msgid "Get scalar value, raising if not scalar."
+msgstr "Get scalar value, raising if not scalar."
+
+msgid ":py:obj:`value <hydrometrics.MetricResult.value>`"
+msgstr ":py:obj:`value <hydrometrics.MetricResult.value>`"
+
+msgid ":py:obj:`name <hydrometrics.MetricResult.name>`"
+msgstr ":py:obj:`name <hydrometrics.MetricResult.name>`"
+
+msgid ":py:obj:`direction <hydrometrics.MetricResult.direction>`"
+msgstr ":py:obj:`direction <hydrometrics.MetricResult.direction>`"
+
+msgid ":py:obj:`bounds <hydrometrics.MetricResult.bounds>`"
+msgstr ":py:obj:`bounds <hydrometrics.MetricResult.bounds>`"
+
+msgid ":py:obj:`parameters <hydrometrics.MetricResult.parameters>`"
+msgstr ":py:obj:`parameters <hydrometrics.MetricResult.parameters>`"
+
+msgid ":py:obj:`reference <hydrometrics.MetricResult.reference>`"
+msgstr ":py:obj:`reference <hydrometrics.MetricResult.reference>`"
+
+msgid ":py:obj:`nan_info <hydrometrics.MetricResult.nan_info>`"
+msgstr ":py:obj:`nan_info <hydrometrics.MetricResult.nan_info>`"
+
+msgid ":py:obj:`meta <hydrometrics.MetricResult.meta>`"
+msgstr ":py:obj:`meta <hydrometrics.MetricResult.meta>`"
+
+msgid "hydrometrics.accuracy"
+msgstr "hydrometrics.accuracy"
+
+msgid "Classification Accuracy."
+msgstr "Classification Accuracy."
+
+msgid "Параметры"
+msgstr "Parameters"
+
+msgid "True class labels (integers)."
+msgstr "True class labels (integers)."
+
+msgid "Predicted class labels (integers)."
+msgstr "Predicted class labels (integers)."
+
+msgid "Axis along which to compute; ``None`` pools all values. For xarray inputs use ``dim`` (a dimension name) or ``axis``."
+msgstr "Axis along which to compute; ``None`` pools all values. For xarray inputs use ``dim`` (a dimension name) or ``axis``."
+
+msgid "Missing values (NaN) in ``obs``, ``sim`` or the weight. ``\"omit\"`` drops the affected pairs, also along an axis; ``\"propagate\"`` returns NaN for the result, or for each slice along ``axis``, that contains a NaN; ``\"raise\"`` raises ``ValueError``."
+msgstr "Missing values (NaN) in ``obs``, ``sim`` or the weight. ``\"omit\"`` drops the affected pairs, also along an axis; ``\"propagate\"`` returns NaN for the result, or for each slice along ``axis``, that contains a NaN; ``\"raise\"`` raises ``ValueError``."
+
+msgid "Weights of the observations, same shape as ``obs``, non-negative. NaN makes the pair invalid. ``weight`` is accepted as an alias; passing both raises ``TypeError``."
+msgstr "Weights of the observations, same shape as ``obs``, non-negative. NaN makes the pair invalid. ``weight`` is accepted as an alias; passing both raises ``TypeError``."
+
+msgid "How an output with ``ndim > 0`` is reduced. By default an ``axis`` returns the array over the remaining dimensions (``\"none\"``) and no ``axis`` returns the ``\"mean\"``."
+msgstr "How an output with ``ndim > 0`` is reduced. By default an ``axis`` returns the array over the remaining dimensions (``\"none\"``) and no ``axis`` returns the ``\"mean\"``."
+
+msgid "Labelled inputs. ``\"strict\"`` raises ``ValueError`` if the indexes of two pandas objects (or the coordinates of two xarray objects) differ; ``\"inner\"`` cuts them to the common labels, in the order of ``obs``, before the NaN policy is applied. Inputs without labels are matched by position; ``\"inner\"`` raises ``ValueError`` for them."
+msgstr "Labelled inputs. ``\"strict\"`` raises ``ValueError`` if the indexes of two pandas objects (or the coordinates of two xarray objects) differ; ``\"inner\"`` cuts them to the common labels, in the order of ``obs``, before the NaN policy is applied. Inputs without labels are matched by position; ``\"inner\"`` raises ``ValueError`` for them."
+
+msgid "Результат"
+msgstr "Result"
+
+msgid "*float or ndarray* -- Accuracy value."
+msgstr "*float or ndarray* -- Accuracy value."
+
+msgid "Исключение"
+msgstr "Exception"
+
+msgid "If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_policy``, ``reduction`` or ``align`` is unknown, NaN is present with     ``nan_policy=\"raise\"``, or the labels of the inputs are not aligned (``align``)."
+msgstr "If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_policy``, ``reduction`` or ``align`` is unknown, NaN is present with     ``nan_policy=\"raise\"``, or the labels of the inputs are not aligned (``align``)."
+
+msgid "If ``sample_weight`` and ``weight`` are both given."
+msgstr "If ``sample_weight`` and ``weight`` are both given."
+
+msgid "If a weight or an ``axis`` is given to a metric that does not support it."
+msgstr "If a weight or an ``axis`` is given to a metric that does not support it."
+
+msgid "hydrometrics.alpha\\_component"
+msgstr "hydrometrics.alpha\\_component"
+
+msgid "KGE alpha component (variability ratio)."
+msgstr "KGE alpha component (variability ratio)."
+
+msgid "Observed values."
+msgstr "Observed values."
+
+msgid "Simulated values."
+msgstr "Simulated values."
+
+msgid "KGE version. It is validated but has no effect on the value: alpha is std(sim) / std(obs) in both cases. Alpha is a term of KGE 2009 only; KGE' (2012) uses the ratio of coefficients of variation gamma instead."
+msgstr "KGE version. It is validated but has no effect on the value: alpha is std(sim) / std(obs) in both cases. Alpha is a term of KGE 2009 only; KGE' (2012) uses the ratio of coefficients of variation gamma instead."
+
+msgid "*float or ndarray* -- Alpha value."
+msgstr "*float or ndarray* -- Alpha value."
+
+msgid "If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_policy``, ``reduction`` or ``align`` is unknown, NaN is present with     ``nan_policy=\"raise\"``, or the labels of the inputs are not aligned (``align``).     If ``version`` is not \"2009\" or \"2012\"."
+msgstr "If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_policy``, ``reduction`` or ``align`` is unknown, NaN is present with     ``nan_policy=\"raise\"``, or the labels of the inputs are not aligned (``align``).     If ``version`` is not \"2009\" or \"2012\"."
+
+msgid "hydrometrics.beta\\_component"
+msgstr "hydrometrics.beta\\_component"
+
+msgid "KGE beta component (bias ratio)."
+msgstr "KGE beta component (bias ratio)."
+
+msgid "*float or ndarray* -- Beta value."
+msgstr "*float or ndarray* -- Beta value."
+
+msgid "hydrometrics.bias"
+msgstr "hydrometrics.bias"
+
+msgid "Bias (Mean Error)."
+msgstr "Bias (Mean Error)."
+
+msgid "*float or ndarray* -- Bias value."
+msgstr "*float or ndarray* -- Bias value."
+
+msgid "hydrometrics.brier\\_score"
+msgstr "hydrometrics.brier\\_score"
+
+msgid "Brier Score for binary events."
+msgstr "Brier Score for binary events."
+
+msgid "A ``ValueError`` is raised if ``obs`` holds a value other than 0 or 1, or ``sim`` a value outside [0, 1]. Missing values are not checked."
+msgstr "A ``ValueError`` is raised if ``obs`` holds a value other than 0 or 1, or ``sim`` a value outside [0, 1]. Missing values are not checked."
+
+msgid "Binary observed outcomes (0 or 1)."
+msgstr "Binary observed outcomes (0 or 1)."
+
+msgid "Forecast probabilities in [0, 1]."
+msgstr "Forecast probabilities in [0, 1]."
+
+msgid "*float or ndarray* -- Brier Score value."
+msgstr "*float or ndarray* -- Brier Score value."
+
+msgid "Ссылки"
+msgstr "References"
+
+msgid "Brier (1950), DOI: 10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2"
+msgstr "Brier (1950), DOI: 10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2"
+
+msgid "Murphy (1973), DOI: 10.1175/1520-0450(1973)012<0595:ANVPOT>2.0.CO;2"
+msgstr "Murphy (1973), DOI: 10.1175/1520-0450(1973)012<0595:ANVPOT>2.0.CO;2"
+
+msgid "hydrometrics.compute\\_grouped"
+msgstr "hydrometrics.compute\\_grouped"
+
+msgid "A HydroMetrics metric function (decorated with @metric / dispatcher)."
+msgstr "A HydroMetrics metric function (decorated with @metric / dispatcher)."
+
+msgid "The container holding obs/sim and grouping variables. May be None when group_by is a dict and obs/sim are arrays."
+msgstr "The container holding obs/sim and grouping variables. May be None when group_by is a dict and obs/sim are arrays."
+
+msgid "Observed and simulated values. When ``data`` is a DataFrame, these may be column names; otherwise they are array-like."
+msgstr "Observed and simulated values. When ``data`` is a DataFrame, these may be column names; otherwise they are array-like."
+
+msgid "Grouping specification."
+msgstr "Grouping specification."
+
+msgid "Additional parameters forwarded to the metric."
+msgstr "Additional parameters forwarded to the metric."
+
+msgid "*GroupedResult*"
+msgstr "*GroupedResult*"
+
+msgid "hydrometrics.core.base.MetricFunction"
+msgstr "hydrometrics.core.base.MetricFunction"
+
+msgid "This class is used internally by the @metric decorator. The NumPy path calls it directly; the pandas, polars and xarray backends convert their inputs and call :meth:`compute`, so the NaN policy, the weights, the axis and the result are handled in one place."
+msgstr "This class is used internally by the @metric decorator. The NumPy path calls it directly; the pandas, polars and xarray backends convert their inputs and call :meth:`compute`, so the NaN policy, the weights, the axis and the result are handled in one place."
+
+msgid ":py:obj:`__init__ <hydrometrics.core.base.MetricFunction.__init__>`\\ \\(func\\, name\\, direction\\, bounds\\, ...\\)"
+msgstr ":py:obj:`__init__ <hydrometrics.core.base.MetricFunction.__init__>`\\ \\(func\\, name\\, direction\\, bounds\\, ...\\)"
+
+msgid ":py:obj:`compute <hydrometrics.core.base.MetricFunction.compute>`\\ \\(obs\\, sim\\, \\*\\[\\, sample\\_weight\\, ...\\]\\)"
+msgstr ":py:obj:`compute <hydrometrics.core.base.MetricFunction.compute>`\\ \\(obs\\, sim\\, \\*\\[\\, sample\\_weight\\, ...\\]\\)"
+
+msgid "Shared implementation behind every backend; see :meth:`__call__`."
+msgstr "Shared implementation behind every backend; see :meth:`__call__`."
+
+msgid "hydrometrics.core.base.metric"
+msgstr "hydrometrics.core.base.metric"
+
+msgid "Optimization direction; \"target\" means the best value is ``optimum``."
+msgstr "Optimization direction; \"target\" means the best value is ``optimum``."
+
+msgid "Theoretical bounds (lower, upper). Use None for unbounded."
+msgstr "Theoretical bounds (lower, upper). Use None for unbounded."
+
+msgid "DOI or citation reference."
+msgstr "DOI or citation reference."
+
+msgid "Description of the metric."
+msgstr "Description of the metric."
+
+msgid "LaTeX formula."
+msgstr "LaTeX formula."
+
+msgid "If False, a ``sample_weight`` raises ``NotImplementedError``."
+msgstr "If False, a ``sample_weight`` raises ``NotImplementedError``."
+
+msgid "If False, an ``axis`` raises ``NotImplementedError``."
+msgstr "If False, an ``axis`` raises ``NotImplementedError``."
+
+msgid "Best value of a \"target\" metric."
+msgstr "Best value of a \"target\" metric."
+
+msgid "*Callable* -- Decorated function with unified API."
+msgstr "*Callable* -- Decorated function with unified API."
+
+msgid "hydrometrics.crps"
+msgstr "hydrometrics.crps"
+
+msgid "Continuous Ranked Probability Score (CRPS)."
+msgstr "Continuous Ranked Probability Score (CRPS)."
+
+msgid "Observed values, shape (n_samples,) or (n_samples, n_stations, ...)."
+msgstr "Observed values, shape (n_samples,) or (n_samples, n_stations, ...)."
+
+msgid "Forecast values. Deterministic forecast: same shape as ``obs``; the score is the absolute error. Ensemble forecast: ``obs.shape + (n_members,)``, members on the last axis."
+msgstr "Forecast values. Deterministic forecast: same shape as ``obs``; the score is the absolute error. Ensemble forecast: ``obs.shape + (n_members,)``, members on the last axis."
+
+msgid "Ensemble forecasts only. ``False`` is the classical estimator, ``mean_j |X_j - o| - 0.5 * sum_jk |X_j - X_k| / m**2``. ``True`` is the fair estimator named in Ferro (2014), which divides the spread term by m(m - 1) instead of m**2. For m members the fair value is smaller than the classical one."
+msgstr "Ensemble forecasts only. ``False`` is the classical estimator, ``mean_j |X_j - o| - 0.5 * sum_jk |X_j - X_k| / m**2``. ``True`` is the fair estimator named in Ferro (2014), which divides the spread term by m(m - 1) instead of m**2. For m members the fair value is smaller than the classical one."
+
+msgid "*float or ndarray* -- CRPS value, in the units of ``obs``."
+msgstr "*float or ndarray* -- CRPS value, in the units of ``obs``."
+
+msgid "If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_policy``, ``reduction`` or ``align`` is unknown, NaN is present with     ``nan_policy=\"raise\"``, or the labels of the inputs are not aligned (``align``).     If ``sim`` is neither shaped like ``obs`` nor ``obs.shape + (n_members,)``."
+msgstr "If the shapes of ``obs`` and ``sim`` are incompatible, a weight is negative or has the     wrong shape, ``nan_policy``, ``reduction`` or ``align`` is unknown, NaN is present with     ``nan_policy=\"raise\"``, or the labels of the inputs are not aligned (``align``).     If ``sim`` is neither shaped like ``obs`` nor ``obs.shape + (n_members,)``."
+
+msgid "Заметки"
+msgstr "Notes"
+
+msgid "Both estimators are non-negative, so ``bounds=(0, None)`` holds for ``fair=False`` and ``fair=True``: by the triangle inequality the spread term never exceeds the mean absolute error of the members. The default changed from the fair to the classical estimator."
+msgstr "Both estimators are non-negative, so ``bounds=(0, None)`` holds for ``fair=False`` and ``fair=True``: by the triangle inequality the spread term never exceeds the mean absolute error of the members. The default changed from the fair to the classical estimator."
+
+msgid "Hersbach (2000), DOI: 10.1175/1520-0434(2000)015<0559:DOTCRP>2.0.CO;2"
+msgstr "Hersbach (2000), DOI: 10.1175/1520-0434(2000)015<0559:DOTCRP>2.0.CO;2"
+
+msgid "Gneiting & Raftery (2007), DOI: 10.1198/016214506000001437"
+msgstr "Gneiting & Raftery (2007), DOI: 10.1198/016214506000001437"
+
+msgid "Ferro (2014), DOI: 10.1002/qj.2270"
+msgstr "Ferro (2014), DOI: 10.1002/qj.2270"
+
+msgid "hydrometrics.crpss"
+msgstr "hydrometrics.crpss"
+
+msgid "Continuous Ranked Probability Skill Score (CRPSS)."
+msgstr "Continuous Ranked Probability Skill Score (CRPSS)."
+
+msgid "CRPSS = 1 - mean(CRPS) / mean(CRPS_ref): the ratio of the means over ``axis``, not the mean of per-observation ratios. Both scores use the classical estimator of :func:`crps`."
+msgstr "CRPSS = 1 - mean(CRPS) / mean(CRPS_ref): the ratio of the means over ``axis``, not the mean of per-observation ratios. Both scores use the classical estimator of :func:`crps`."
+
+msgid "Forecast values: same shape as ``obs`` or ``obs.shape + (n_members,)``."
+msgstr "Forecast values: same shape as ``obs`` or ``obs.shape + (n_members,)``."
+
+msgid "Reference forecast for skill score, deterministic or an ensemble. If None, the (weighted) mean of the observations is the deterministic reference."
+msgstr "Reference forecast for skill score, deterministic or an ensemble. If None, the (weighted) mean of the observations is the deterministic reference."
+
+msgid "*float or ndarray* -- CRPSS value."
+msgstr "*float or ndarray* -- CRPSS value."
+
+msgid "hydrometrics.edi"
+msgstr "hydrometrics.edi"
+
+msgid "Extremal Dependence Index (EDI)."
+msgstr "Extremal Dependence Index (EDI)."
+
+msgid "True binary labels (0 or 1)."
+msgstr "True binary labels (0 or 1)."
+
+msgid "Predicted binary labels (0 or 1)."
+msgstr "Predicted binary labels (0 or 1)."
+
+msgid "*float or ndarray* -- EDI value in [-1, 1]."
+msgstr "*float or ndarray* -- EDI value in [-1, 1]."
+
+msgid "H = TP / (TP + FN)  -- hit rate F = FP / (FP + TN)  -- false alarm rate EDI = (log F - log H) / (log F + log H)"
+msgstr "H = TP / (TP + FN)  -- hit rate F = FP / (FP + TN)  -- false alarm rate EDI = (log F - log H) / (log F + log H)"
+
+msgid "A perfect forecast (H = 1 and F = 0) is defined to give 1. In the other cases with H = 0 or F = 0 the result is NaN, because a logarithm of 0 appears. For H = 1 and 0 < F < 1, log H = 0 and EDI equals 1. The definition at H = 1, F = 0 is a decision of the library author; the source text could not be checked. Pairs with a missing value count in none of the four cells."
+msgstr "A perfect forecast (H = 1 and F = 0) is defined to give 1. In the other cases with H = 0 or F = 0 the result is NaN, because a logarithm of 0 appears. For H = 1 and 0 < F < 1, log H = 0 and EDI equals 1. The definition at H = 1, F = 0 is a decision of the library author; the source text could not be checked. Pairs with a missing value count in none of the four cells."
+
+msgid "Ferro, C. A. T., & Stephenson, D. B. (2011). Extremal Dependence Indices: Improved Verification Measures for Deterministic Forecasts of Rare Binary Events. Weather and Forecasting, 26(5), 699-713. DOI: 10.1175/WAF-D-10-05030.1"
+msgstr "Ferro, C. A. T., & Stephenson, D. B. (2011). Extremal Dependence Indices: Improved Verification Measures for Deterministic Forecasts of Rare Binary Events. Weather and Forecasting, 26(5), 699-713. DOI: 10.1175/WAF-D-10-05030.1"
+
+msgid "hydrometrics.f1\\_score"
+msgstr "hydrometrics.f1\\_score"
+
+msgid "F1 Score for binary classification."
+msgstr "F1 Score for binary classification."
+
+msgid "Class label considered as positive."
+msgstr "Class label considered as positive."
+
+msgid "*float or ndarray* -- F1 Score value."
+msgstr "*float or ndarray* -- F1 Score value."
+
+msgid "hydrometrics.forecast\\_verification"
+msgstr "hydrometrics.forecast\\_verification"
+
+msgid "Forecast verification criterion for hydrological forecasts."
+msgstr "Forecast verification criterion for hydrological forecasts."
+
+msgid "A forecast is considered verified when its absolute error is less than 0.674 times the sample standard deviation (``ddof=1``) of all observations along ``axis``. The coefficient is the module constant ``PROBABLE_ERROR_COEFFICIENT`` of ``hydrometrics.backends.numpy``, the probable deviation of the normal law (0.6745 sigma)."
+msgstr "A forecast is considered verified when its absolute error is less than 0.674 times the sample standard deviation (``ddof=1``) of all observations along ``axis``. The coefficient is the module constant ``PROBABLE_ERROR_COEFFICIENT`` of ``hydrometrics.backends.numpy``, the probable deviation of the normal law (0.6745 sigma)."
+
+msgid "Forecast or simulated values."
+msgstr "Forecast or simulated values."
+
+msgid "Not supported by this metric: a weight (or its alias ``weight``) raises ``NotImplementedError``."
+msgstr "Not supported by this metric: a weight (or its alias ``weight``) raises ``NotImplementedError``."
+
+msgid "*float or np.ndarray* -- With ``reduction=\"mean\"``, the fraction of verified forecasts. With ``reduction=\"none\"``, an array of 1.0 (verified), 0.0 (not verified) and NaN where the error or the threshold is undefined, for example for a missing observation or forecast."
+msgstr "*float or np.ndarray* -- With ``reduction=\"mean\"``, the fraction of verified forecasts. With ``reduction=\"none\"``, an array of 1.0 (verified), 0.0 (not verified) and NaN where the error or the threshold is undefined, for example for a missing observation or forecast."
+
+msgid "Georgievsky, Y. M., & Shanochkin, S. V. (2007). Hydrological Forecasts."
+msgstr "Georgievsky, Y. M., & Shanochkin, S. V. (2007). Hydrological Forecasts."
+
+msgid "hydrometrics.forecast\\_verification\\_delta"
+msgstr "hydrometrics.forecast\\_verification\\_delta"
+
+msgid "Calculate the forecast verification criterion based on forecast errors."
+msgstr "Calculate the forecast verification criterion based on forecast errors."
+
+msgid "For each reference date, the sample standard deviation (``ddof=1``) of the forecast errors ``sim - obs`` is calculated across valid pairs. A forecast is considered verified if its absolute error is less than 0.674 times this standard deviation (``PROBABLE_ERROR_COEFFICIENT`` of ``hydrometrics.backends.numpy``)."
+msgstr "For each reference date, the sample standard deviation (``ddof=1``) of the forecast errors ``sim - obs`` is calculated across valid pairs. A forecast is considered verified if its absolute error is less than 0.674 times this standard deviation (``PROBABLE_ERROR_COEFFICIENT`` of ``hydrometrics.backends.numpy``)."
+
+msgid "Here sigma_delta is the spread of the forecast errors ``sim - obs`` within a reference-date group."
+msgstr "Here sigma_delta is the spread of the forecast errors ``sim - obs`` within a reference-date group."
+
+msgid "Simulated or forecast values."
+msgstr "Simulated or forecast values."
+
+msgid "Reference dates used to group forecast errors."
+msgstr "Reference dates used to group forecast errors."
+
+msgid "Not supported by this metric: any other value raises ``NotImplementedError``."
+msgstr "Not supported by this metric: any other value raises ``NotImplementedError``."
+
+msgid "*float or np.ndarray* -- With ``reduction=\"mean\"``, the fraction of verified forecasts. With ``reduction=\"none\"``, an array of 1.0 (verified), 0.0 (not verified) and NaN where the error is missing or its group has fewer than two valid errors."
+msgstr "*float or np.ndarray* -- With ``reduction=\"mean\"``, the fraction of verified forecasts. With ``reduction=\"none\"``, an array of 1.0 (verified), 0.0 (not verified) and NaN where the error is missing or its group has fewer than two valid errors."
+
+msgid "Georgievsky & Shanochkin (2007), *Hydrological Forecasts*."
+msgstr "Georgievsky & Shanochkin (2007), *Hydrological Forecasts*."
+
+msgid "hydrometrics.gamma\\_component"
+msgstr "hydrometrics.gamma\\_component"
+
+msgid "KGE gamma component (coefficient of variation ratio)."
+msgstr "KGE gamma component (coefficient of variation ratio)."
+
+msgid "*float or ndarray* -- Gamma value."
+msgstr "*float or ndarray* -- Gamma value."
+
+msgid "hydrometrics.kendall\\_tau"
+msgstr "hydrometrics.kendall\\_tau"
+
+msgid "Kendall's Tau Rank Correlation."
+msgstr "Kendall's Tau Rank Correlation."
+
+msgid "*float or ndarray* -- Kendall's tau value."
+msgstr "*float or ndarray* -- Kendall's tau value."
+
+msgid "hydrometrics.kge\\_2009"
+msgstr "hydrometrics.kge\\_2009"
+
+msgid "Kling-Gupta Efficiency (KGE) 2009 version."
+msgstr "Kling-Gupta Efficiency (KGE) 2009 version."
+
+msgid "*float or ndarray* -- KGE value."
+msgstr "*float or ndarray* -- KGE value."
+
+msgid "Gupta et al. (2009), DOI: 10.1016/j.jhydrol.2009.08.003"
+msgstr "Gupta et al. (2009), DOI: 10.1016/j.jhydrol.2009.08.003"
+
+msgid "hydrometrics.kge\\_2012"
+msgstr "hydrometrics.kge\\_2012"
+
+msgid "Kling-Gupta Efficiency (KGE') 2012 version."
+msgstr "Kling-Gupta Efficiency (KGE') 2012 version."
+
+msgid "KGE' = 1 - sqrt((r - 1)^2 + (beta - 1)^2 + (gamma - 1)^2) with beta = mean(sim) / mean(obs) and gamma = (std(sim) / mean(sim)) / (std(obs) / mean(obs)). The variability ratio alpha is not a term of this version; it is a term of :func:`hydrometrics.kge_2009`."
+msgstr "KGE' = 1 - sqrt((r - 1)^2 + (beta - 1)^2 + (gamma - 1)^2) with beta = mean(sim) / mean(obs) and gamma = (std(sim) / mean(sim)) / (std(obs) / mean(obs)). The variability ratio alpha is not a term of this version; it is a term of :func:`hydrometrics.kge_2009`."
+
+msgid "Kling et al. (2012), DOI: 10.1016/j.jhydrol.2012.01.011"
+msgstr "Kling et al. (2012), DOI: 10.1016/j.jhydrol.2012.01.011"
+
+msgid "hydrometrics.kge\\_components"
+msgstr "hydrometrics.kge\\_components"
+
+msgid "Compute all KGE components."
+msgstr "Compute all KGE components."
+
+msgid "KGE version. It decides which components are returned: ``gamma`` is added for \"2012\". The values of ``r``, ``alpha`` and ``beta`` do not depend on it."
+msgstr "KGE version. It decides which components are returned: ``gamma`` is added for \"2012\". The values of ``r``, ``alpha`` and ``beta`` do not depend on it."
+
+msgid "*dict* -- Dictionary with keys: 'r', 'alpha', 'beta', 'gamma' (if version=2012). KGE 2009 is 1 - sqrt((r - 1)^2 + (alpha - 1)^2 + (beta - 1)^2); KGE 2012 is 1 - sqrt((r - 1)^2 + (beta - 1)^2 + (gamma - 1)^2), so 'alpha' is returned for information only in that version."
+msgstr "*dict* -- Dictionary with keys: 'r', 'alpha', 'beta', 'gamma' (if version=2012). KGE 2009 is 1 - sqrt((r - 1)^2 + (alpha - 1)^2 + (beta - 1)^2); KGE 2012 is 1 - sqrt((r - 1)^2 + (beta - 1)^2 + (gamma - 1)^2), so 'alpha' is returned for information only in that version."
+
+msgid "hydrometrics.log\\_nse"
+msgstr "hydrometrics.log\\_nse"
+
+msgid "Log-transformed NSE (LogNSE)."
+msgstr "Log-transformed NSE (LogNSE)."
+
+msgid "Observed values (must be >= 0)."
+msgstr "Observed values (must be >= 0)."
+
+msgid "Simulated values (must be >= 0)."
+msgstr "Simulated values (must be >= 0)."
+
+msgid "Small constant added before log to avoid log(0)."
+msgstr "Small constant added before log to avoid log(0)."
+
+msgid "*float or ndarray* -- LogNSE value."
+msgstr "*float or ndarray* -- LogNSE value."
+
+msgid "Krause et al. (2005), DOI: 10.5194/adgeo-5-89-2005"
+msgstr "Krause et al. (2005), DOI: 10.5194/adgeo-5-89-2005"
+
+msgid "hydrometrics.mae"
+msgstr "hydrometrics.mae"
+
+msgid "Mean Absolute Error (MAE)."
+msgstr "Mean Absolute Error (MAE)."
+
+msgid "*float or ndarray* -- MAE value."
+msgstr "*float or ndarray* -- MAE value."
+
+msgid "Willmott & Matsuura (2005), DOI: 10.3354/cr030079"
+msgstr "Willmott & Matsuura (2005), DOI: 10.3354/cr030079"
+
+msgid "hydrometrics.modified\\_nse"
+msgstr "hydrometrics.modified\\_nse"
+
+msgid "Modified NSE (mNSE)."
+msgstr "Modified NSE (mNSE)."
+
+msgid "Reference value for normalization. If None, uses mean of observations."
+msgstr "Reference value for normalization. If None, uses mean of observations."
+
+msgid "*float or ndarray* -- Modified NSE value."
+msgstr "*float or ndarray* -- Modified NSE value."
+
+msgid "hydrometrics.mse"
+msgstr "hydrometrics.mse"
+
+msgid "Mean Squared Error (MSE)."
+msgstr "Mean Squared Error (MSE)."
+
+msgid "*float or ndarray* -- MSE value."
+msgstr "*float or ndarray* -- MSE value."
+
+msgid "hydrometrics.nrmse"
+msgstr "hydrometrics.nrmse"
+
+msgid "Normalized Root Mean Squared Error (NRMSE)."
+msgstr "Normalized Root Mean Squared Error (NRMSE)."
+
+msgid "Normalization method: - \"mean\": divide by mean of observations - \"std\": divide by standard deviation of observations - \"range\": divide by range (max - min) of observations - \"iqr\": divide by interquartile range of observations"
+msgstr "Normalization method: - \"mean\": divide by mean of observations - \"std\": divide by standard deviation of observations - \"range\": divide by range (max - min) of observations - \"iqr\": divide by interquartile range of observations"
+
+msgid "*float or ndarray* -- NRMSE value."
+msgstr "*float or ndarray* -- NRMSE value."
+
+msgid "hydrometrics.nse"
+msgstr "hydrometrics.nse"
+
+msgid "Nash-Sutcliffe Efficiency (NSE)."
+msgstr "Nash-Sutcliffe Efficiency (NSE)."
+
+msgid "Reference value for normalization (climatological norm). If None, uses mean of observations."
+msgstr "Reference value for normalization (climatological norm). If None, uses mean of observations."
+
+msgid "*float or ndarray* -- NSE value."
+msgstr "*float or ndarray* -- NSE value."
+
+msgid "Nash & Sutcliffe (1970), DOI: 10.1016/0022-1694(70)90255-6"
+msgstr "Nash & Sutcliffe (1970), DOI: 10.1016/0022-1694(70)90255-6"
+
+msgid "Moriasi et al. (2007), DOI: 10.13031/2013.23153 (performance ratings)"
+msgstr "Moriasi et al. (2007), DOI: 10.13031/2013.23153 (performance ratings)"
+
+msgid "hydrometrics.nse\\_bounded"
+msgstr "hydrometrics.nse\\_bounded"
+
+msgid "Bounded NSE."
+msgstr "Bounded NSE."
+
+msgid "``NSE / (2 - NSE)``, a bounded transform of NSE with values in (-1, 1] and value 0 at NSE = 0. It ranks models like NSE. The name nNSE is used in the literature for the form 1 / (2 - NSE), with values in (0, 1] and 0.5 at NSE = 0, which is a different quantity. No primary source for the form implemented here could be verified."
+msgstr "``NSE / (2 - NSE)``, a bounded transform of NSE with values in (-1, 1] and value 0 at NSE = 0. It ranks models like NSE. The name nNSE is used in the literature for the form 1 / (2 - NSE), with values in (0, 1] and 0.5 at NSE = 0, which is a different quantity. No primary source for the form implemented here could be verified."
+
+msgid "*float or ndarray* -- Bounded NSE value in (-1, 1]."
+msgstr "*float or ndarray* -- Bounded NSE value in (-1, 1]."
+
+msgid "No verified primary source"
+msgstr "No verified primary source"
+
+msgid "hydrometrics.nse\\_variance\\_weighted"
+msgstr "hydrometrics.nse\\_variance\\_weighted"
+
+msgid "Variance-weighted Nash-Sutcliffe Efficiency across gauges."
+msgstr "Variance-weighted Nash-Sutcliffe Efficiency across gauges."
+
+msgid "Computes NSE separately for each gauge and combines the gauge-specific scores using the variance of observed values as weights."
+msgstr "Computes NSE separately for each gauge and combines the gauge-specific scores using the variance of observed values as weights."
+
+msgid "Gauge labels identifying the observation station for each paired observed and simulated value."
+msgstr "Gauge labels identifying the observation station for each paired observed and simulated value."
+
+msgid "*float* -- Variance-weighted mean NSE across gauges, or NaN if no valid gauge scores with positive observed variance are available."
+msgstr "*float* -- Variance-weighted mean NSE across gauges, or NaN if no valid gauge scores with positive observed variance are available."
+
+msgid "Gartsman, B. I., Solomatine, D. P., & Gubareva, T. S. (2024). A Method of Multi-Site Calibration of Distributed Hydrological Models Based on the Nash-Sutcliffe Efficiency. Geography, Environment, Sustainability, 17(4), 76-87. DOI: 10.24057/2071-9388-2024-3564."
+msgstr "Gartsman, B. I., Solomatine, D. P., & Gubareva, T. S. (2024). A Method of Multi-Site Calibration of Distributed Hydrological Models Based on the Nash-Sutcliffe Efficiency. Geography, Environment, Sustainability, 17(4), 76-87. DOI: 10.24057/2071-9388-2024-3564."
+
+msgid "Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through conceptual models. Part I — A discussion of principles. DOI: 10.1016/0022-1694(70)90255-6."
+msgstr "Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through conceptual models. Part I — A discussion of principles. DOI: 10.1016/0022-1694(70)90255-6."
+
+msgid "hydrometrics.pbias"
+msgstr "hydrometrics.pbias"
+
+msgid "Percent Bias (PBIAS)."
+msgstr "Percent Bias (PBIAS)."
+
+msgid "PBIAS = 100 * sum(sim - obs) / sum(obs). A positive value means overestimation by the model, consistent with ``bias = sim - obs``."
+msgstr "PBIAS = 100 * sum(sim - obs) / sum(obs). A positive value means overestimation by the model, consistent with ``bias = sim - obs``."
+
+msgid "The sign is opposite to the definition of Moriasi et al. (2007), who use ``obs - sim`` (citing Gupta et al., 1999), so that a positive value there means underestimation. The magnitude is the same; the rating thresholds of Moriasi et al. apply to ``abs(pbias)``."
+msgstr "The sign is opposite to the definition of Moriasi et al. (2007), who use ``obs - sim`` (citing Gupta et al., 1999), so that a positive value there means underestimation. The magnitude is the same; the rating thresholds of Moriasi et al. apply to ``abs(pbias)``."
+
+msgid "*float or ndarray* -- PBIAS value in percent."
+msgstr "*float or ndarray* -- PBIAS value in percent."
+
+msgid "Gupta et al. (1999), DOI: 10.1061/(ASCE)1084-0699(1999)4:2(135)"
+msgstr "Gupta et al. (1999), DOI: 10.1061/(ASCE)1084-0699(1999)4:2(135)"
+
+msgid "Moriasi et al. (2007), DOI: 10.13031/2013.23153"
+msgstr "Moriasi et al. (2007), DOI: 10.13031/2013.23153"
+
+msgid "hydrometrics.pearson\\_r"
+msgstr "hydrometrics.pearson\\_r"
+
+msgid "Pearson Correlation Coefficient."
+msgstr "Pearson Correlation Coefficient."
+
+msgid "*float or ndarray* -- Pearson r value."
+msgstr "*float or ndarray* -- Pearson r value."
+
+msgid "hydrometrics.pr\\_auc"
+msgstr "hydrometrics.pr\\_auc"
+
+msgid "PR AUC (Average Precision) for binary classification."
+msgstr "PR AUC (Average Precision) for binary classification."
+
+msgid "Predicted probabilities or scores for positive class."
+msgstr "Predicted probabilities or scores for positive class."
+
+msgid "*float or ndarray* -- PR AUC value."
+msgstr "*float or ndarray* -- PR AUC value."
+
+msgid "Davis & Goadrich (2006), DOI: 10.1145/1143844.1143874"
+msgstr "Davis & Goadrich (2006), DOI: 10.1145/1143844.1143874"
+
+msgid "hydrometrics.precision"
+msgstr "hydrometrics.precision"
+
+msgid "Precision for binary classification."
+msgstr "Precision for binary classification."
+
+msgid "*float or ndarray* -- Precision value."
+msgstr "*float or ndarray* -- Precision value."
+
+msgid "hydrometrics.r2"
+msgstr "hydrometrics.r2"
+
+msgid "Coefficient of Determination (R²)."
+msgstr "Coefficient of Determination (R²)."
+
+msgid "*float or ndarray* -- R² value."
+msgstr "*float or ndarray* -- R² value."
+
+msgid "hydrometrics.r\\_component"
+msgstr "hydrometrics.r\\_component"
+
+msgid "KGE r component (Pearson correlation)."
+msgstr "KGE r component (Pearson correlation)."
+
+msgid "*float or ndarray* -- Correlation value."
+msgstr "*float or ndarray* -- Correlation value."
+
+msgid "hydrometrics.recall"
+msgstr "hydrometrics.recall"
+
+msgid "Recall (Sensitivity) for binary classification."
+msgstr "Recall (Sensitivity) for binary classification."
+
+msgid "*float or ndarray* -- Recall value."
+msgstr "*float or ndarray* -- Recall value."
+
+msgid "hydrometrics.regNSE"
+msgstr "hydrometrics.regNSE"
+
+msgid "Regime Nash-Sutcliffe Efficiency (regNSE)."
+msgstr "Regime Nash-Sutcliffe Efficiency (regNSE)."
+
+msgid "Evaluates simulated annual flow-duration curves against observed curves using a reference regime curve: the flow duration curve of the mean annual hydrograph of the observations (calendar-day means over all years, sorted in descending order)."
+msgstr "Evaluates simulated annual flow-duration curves against observed curves using a reference regime curve: the flow duration curve of the mean annual hydrograph of the observations (calendar-day means over all years, sorted in descending order)."
+
+msgid "One-dimensional array of observed values."
+msgstr "One-dimensional array of observed values."
+
+msgid "One-dimensional array of simulated values."
+msgstr "One-dimensional array of simulated values."
+
+msgid "One-dimensional array of dates corresponding to the observations and simulations."
+msgstr "One-dimensional array of dates corresponding to the observations and simulations."
+
+msgid "Precomputed reference regime curve, with shape (365,). If None, the curve is calculated from observed data."
+msgstr "Precomputed reference regime curve, with shape (365,). If None, the curve is calculated from observed data."
+
+msgid "*float* -- Regime NSE value. Returns NaN if no usable years are available or the denominator is zero."
+msgstr "*float* -- Regime NSE value. Returns NaN if no usable years are available or the denominator is zero."
+
+msgid "Gartsman, B. I. (2023). Assessing the quality of modeling and forecasting in hydrology – reasoning about the method. Hydrosphere. Hazard Processes and Phenomena, 5(3), 228–243. DOI: 10.34753/HS.2023.5.3.228."
+msgstr "Gartsman, B. I. (2023). Assessing the quality of modeling and forecasting in hydrology – reasoning about the method. Hydrosphere. Hazard Processes and Phenomena, 5(3), 228–243. DOI: 10.34753/HS.2023.5.3.228."
+
+msgid "hydrometrics.reliability"
+msgstr "hydrometrics.reliability"
+
+msgid "Reliability (calibration) term of the Brier score decomposition of Murphy (1973): sum_k n_k / n * (mean(p_k) - mean(o_k))^2."
+msgstr "Reliability (calibration) term of the Brier score decomposition of Murphy (1973): sum_k n_k / n * (mean(p_k) - mean(o_k))^2."
+
+msgid "The forecast probabilities are grouped into ``n_bins`` equal-width bins on [0, 1]. Bins are half-open, [a, b); the last bin is closed on the right, so a probability of exactly 1 is counted. With weights, n_k and n are sums of weights and the bin means of the probability and of the frequency are weighted means. The resolution and uncertainty terms are not computed. A ``ValueError`` is raised if ``obs`` holds a value other than 0 or 1, if ``sim`` lies outside [0, 1] or if ``n_bins`` is not an integer of at least 1."
+msgstr "The forecast probabilities are grouped into ``n_bins`` equal-width bins on [0, 1]. Bins are half-open, [a, b); the last bin is closed on the right, so a probability of exactly 1 is counted. With weights, n_k and n are sums of weights and the bin means of the probability and of the frequency are weighted means. The resolution and uncertainty terms are not computed. A ``ValueError`` is raised if ``obs`` holds a value other than 0 or 1, if ``sim`` lies outside [0, 1] or if ``n_bins`` is not an integer of at least 1."
+
+msgid "Number of probability bins for reliability diagram; an integer, at least 1."
+msgstr "Number of probability bins for reliability diagram; an integer, at least 1."
+
+msgid "*float or ndarray* -- Reliability value."
+msgstr "*float or ndarray* -- Reliability value."
+
+msgid "Bröcker & Smith (2007), DOI: 10.1175/WAF993.1"
+msgstr "Bröcker & Smith (2007), DOI: 10.1175/WAF993.1"
+
+msgid "hydrometrics.rmse"
+msgstr "hydrometrics.rmse"
+
+msgid "Root Mean Squared Error (RMSE)."
+msgstr "Root Mean Squared Error (RMSE)."
+
+msgid "*float or ndarray* -- RMSE value."
+msgstr "*float or ndarray* -- RMSE value."
+
+msgid "hydrometrics.roc\\_auc"
+msgstr "hydrometrics.roc\\_auc"
+
+msgid "ROC AUC for binary classification."
+msgstr "ROC AUC for binary classification."
+
+msgid "*float or ndarray* -- ROC AUC value."
+msgstr "*float or ndarray* -- ROC AUC value."
+
+msgid "Fawcett (2006), DOI: 10.1016/j.patrec.2005.10.010"
+msgstr "Fawcett (2006), DOI: 10.1016/j.patrec.2005.10.010"
+
+msgid "hydrometrics.rsr"
+msgstr "hydrometrics.rsr"
+
+msgid "Ratio of RMSE to Standard Deviation of Observations (RSR)."
+msgstr "Ratio of RMSE to Standard Deviation of Observations (RSR)."
+
+msgid "*float or ndarray* -- RSR value."
+msgstr "*float or ndarray* -- RSR value."
+
+msgid "hydrometrics.sedi"
+msgstr "hydrometrics.sedi"
+
+msgid "Symmetric Extremal Dependence Index (SEDI)."
+msgstr "Symmetric Extremal Dependence Index (SEDI)."
+
+msgid "*float or ndarray* -- SEDI value."
+msgstr "*float or ndarray* -- SEDI value."
+
+msgid "With the hit rate H = TP / (TP + FN) and the false alarm rate F = FP / (FP + TN), a perfect forecast (H = 1 and F = 0) is defined to give 1. In the other cases with H or F equal to 0 or 1 the result is NaN, because a logarithm of 0 appears. The definition at H = 1, F = 0 is a decision of the library author; the source text could not be checked."
+msgstr "With the hit rate H = TP / (TP + FN) and the false alarm rate F = FP / (FP + TN), a perfect forecast (H = 1 and F = 0) is defined to give 1. In the other cases with H or F equal to 0 or 1 the result is NaN, because a logarithm of 0 appears. The definition at H = 1, F = 0 is a decision of the library author; the source text could not be checked."
+
+msgid "Ferro & Stephenson (2011), DOI: 10.1175/WAF-D-10-05030.1"
+msgstr "Ferro & Stephenson (2011), DOI: 10.1175/WAF-D-10-05030.1"
+
+msgid "hydrometrics.sharpness"
+msgstr "hydrometrics.sharpness"
+
+msgid "Sharpness of probability forecasts, measured as the variance of the forecast probabilities."
+msgstr "Sharpness of probability forecasts, measured as the variance of the forecast probabilities."
+
+msgid "This is not a term of the Murphy (1973) decomposition of the Brier score: the terms of that decomposition are reliability, resolution and uncertainty. The variance is computed from ``sim`` alone and says nothing about calibration."
+msgstr "This is not a term of the Murphy (1973) decomposition of the Brier score: the terms of that decomposition are reliability, resolution and uncertainty. The variance is computed from ``sim`` alone and says nothing about calibration."
+
+msgid "Binary observed outcomes (0 or 1). Not used in calculation but required for API consistency."
+msgstr "Binary observed outcomes (0 or 1). Not used in calculation but required for API consistency."
+
+msgid "*float or ndarray* -- Sharpness value (variance of forecast probabilities)."
+msgstr "*float or ndarray* -- Sharpness value (variance of forecast probabilities)."
+
+msgid "hydrometrics.spearman\\_r"
+msgstr "hydrometrics.spearman\\_r"
+
+msgid "Spearman Rank Correlation."
+msgstr "Spearman Rank Correlation."
+
+msgid "*float or ndarray* -- Spearman rho value."
+msgstr "*float or ndarray* -- Spearman rho value."
+
+msgid "hydrometrics.ssigma"
+msgstr "hydrometrics.ssigma"
+
+msgid "S/sigma hydrological model performance criterion."
+msgstr "S/sigma hydrological model performance criterion."
+
+msgid "Measures the root mean squared residual error relative to the sample standard deviation of observed values. Along an ``axis`` every slice is scored separately; a slice with ``n <= m`` valid pairs or a constant ``obs`` gives NaN."
+msgstr "Measures the root mean squared residual error relative to the sample standard deviation of observed values. Along an ``axis`` every slice is scored separately; a slice with ``n <= m`` valid pairs or a constant ``obs`` gives NaN."
+
+msgid "Number of fitted parameters used in the error degrees-of-freedom adjustment; a finite non-negative number (``ValueError`` otherwise). Must be smaller than the number of valid observations."
+msgstr "Number of fitted parameters used in the error degrees-of-freedom adjustment; a finite non-negative number (``ValueError`` otherwise). Must be smaller than the number of valid observations."
+
+msgid "*float or np.ndarray* -- Ratio of the adjusted root mean squared residual error to the sample standard deviation of observations."
+msgstr "*float or np.ndarray* -- Ratio of the adjusted root mean squared residual error to the sample standard deviation of observations."
+
+msgid "hydrometrics.ssigma\\_delta"
+msgstr "hydrometrics.ssigma\\_delta"
+
+msgid "Group-wise S/sigma_delta criterion for short-term hydrological forecasts."
+msgstr "Group-wise S/sigma_delta criterion for short-term hydrological forecasts."
+
+msgid "The metric is calculated independently for each group identified by ref_date. Each group's score is assigned to all valid observations belonging to that group."
+msgstr "The metric is calculated independently for each group identified by ref_date. Each group's score is assigned to all valid observations belonging to that group."
+
+msgid "Here sigma is the sample standard deviation (``ddof=1``) of the observed values within a reference-date group. A group whose observed variance is zero up to rounding gives NaN."
+msgstr "Here sigma is the sample standard deviation (``ddof=1``) of the observed values within a reference-date group. A group whose observed variance is zero up to rounding gives NaN."
+
+msgid "Simulated or forecast values, with the same shape as obs."
+msgstr "Simulated or forecast values, with the same shape as obs."
+
+msgid "Group labels (e.g. reference dates), with the same shape as obs and sim."
+msgstr "Group labels (e.g. reference dates), with the same shape as obs and sim."
+
+msgid "Number of fitted parameters used in the error degrees-of-freedom adjustment; a finite non-negative number (``ValueError`` otherwise). Each group must contain more than m valid observation-simulation pairs."
+msgstr "Number of fitted parameters used in the error degrees-of-freedom adjustment; a finite non-negative number (``ValueError`` otherwise). Each group must contain more than m valid observation-simulation pairs."
+
+msgid "*float or np.ndarray* -- By default the mean of the valid scores. With ``reduction=\"none\"`` the array of group-wise S/sigma_delta scores with the same shape as obs. Groups with insufficient data or zero observed variance are filled with NaN."
+msgstr "*float or np.ndarray* -- By default the mean of the valid scores. With ``reduction=\"none\"`` the array of group-wise S/sigma_delta scores with the same shape as obs. Groups with insufficient data or zero observed variance are filled with NaN."
+
+msgid "hydrometrics.validate\\_inputs"
+msgstr "hydrometrics.validate\\_inputs"
+
+msgid "Simulated values. An ensemble has one extra trailing axis, ``obs.shape + (n_members,)``."
+msgstr "Simulated values. An ensemble has one extra trailing axis, ``obs.shape + (n_members,)``."
+
+msgid "Axis along which a metric will be computed. It only matters for the ``\"propagate\"`` policy, where it defines which slices become NaN."
+msgstr "Axis along which a metric will be computed. It only matters for the ``\"propagate\"`` policy, where it defines which slices become NaN."
+
+msgid "How to handle NaN values. ``\"omit\"`` makes the removal pairwise: wherever ``obs``, ``sim`` or the weight is NaN, NaN is set in all three, so the arrays keep their shape and metrics that count only valid values drop exactly those pairs, also along an axis. ``\"propagate\"`` applies the same mask and leaves it to the caller to turn the affected slices into NaN. ``\"raise\"`` raises ``ValueError`` for any NaN."
+msgstr "How to handle NaN values. ``\"omit\"`` makes the removal pairwise: wherever ``obs``, ``sim`` or the weight is NaN, NaN is set in all three, so the arrays keep their shape and metrics that count only valid values drop exactly those pairs, also along an axis. ``\"propagate\"`` applies the same mask and leaves it to the caller to turn the affected slices into NaN. ``\"raise\"`` raises ``ValueError`` for any NaN."
+
+msgid "Sample weights for weighted metrics, same shape as ``obs``, non-negative."
+msgstr "Sample weights for weighted metrics, same shape as ``obs``, non-negative."
+
+#, python-brace-format
+msgid "* **obs_arr** (*np.ndarray*) -- Validated observed values as numpy array. * **sim_arr** (*np.ndarray*) -- Validated simulated values as numpy array. * **weight_arr** (*np.ndarray or None*) -- Validated weights as numpy array. * **nan_info** (*dict*) -- ``{\"policy\", \"n_nan_removed\", \"n_total\"}``: the policy, the number of pairs   removed (``\"omit\"`` only) and the number of pairs."
+msgstr "* **obs_arr** (*np.ndarray*) -- Validated observed values as numpy array. * **sim_arr** (*np.ndarray*) -- Validated simulated values as numpy array. * **weight_arr** (*np.ndarray or None*) -- Validated weights as numpy array. * **nan_info** (*dict*) -- ``{\"policy\", \"n_nan_removed\", \"n_total\"}``: the policy, the number of pairs   removed (``\"omit\"`` only) and the number of pairs."
+
+msgid "**obs_arr** (*np.ndarray*) -- Validated observed values as numpy array."
+msgstr "**obs_arr** (*np.ndarray*) -- Validated observed values as numpy array."
+
+msgid "**sim_arr** (*np.ndarray*) -- Validated simulated values as numpy array."
+msgstr "**sim_arr** (*np.ndarray*) -- Validated simulated values as numpy array."
+
+msgid "**weight_arr** (*np.ndarray or None*) -- Validated weights as numpy array."
+msgstr "**weight_arr** (*np.ndarray or None*) -- Validated weights as numpy array."
+
+#, python-brace-format
+msgid "**nan_info** (*dict*) -- ``{\"policy\", \"n_nan_removed\", \"n_total\"}``: the policy, the number of pairs removed (``\"omit\"`` only) and the number of pairs."
+msgstr "**nan_info** (*dict*) -- ``{\"policy\", \"n_nan_removed\", \"n_total\"}``: the policy, the number of pairs removed (``\"omit\"`` only) and the number of pairs."
+
+msgid "If inputs have incompatible shapes, weights are negative or of a wrong shape,     the policy is unknown, or NaN is present under ``nan_policy=\"raise\"``."
+msgstr "If inputs have incompatible shapes, weights are negative or of a wrong shape,     the policy is unknown, or NaN is present under ``nan_policy=\"raise\"``."
+
+msgid "hydrometrics.ve"
+msgstr "hydrometrics.ve"
+
+msgid "Volumetric Efficiency (VE)."
+msgstr "Volumetric Efficiency (VE)."
+
+msgid "*float or ndarray* -- VE value."
+msgstr "*float or ndarray* -- VE value."
+
+msgid "Criss & Winston (2008), DOI: 10.1002/hyp.7072"
+msgstr "Criss & Winston (2008), DOI: 10.1002/hyp.7072"
+
+msgid "hydrometrics.weighted\\_crps"
+msgstr "hydrometrics.weighted\\_crps"
+
+msgid "Weighted Continuous Ranked Probability Score (Weighted CRPS)."
+msgstr "Weighted Continuous Ranked Probability Score (Weighted CRPS)."
+
+msgid "The classical CRPS of every observation is averaged with the weights ``weight_func(obs) * weight``. This weights observations, not the integrand of the CRPS as Gneiting & Ranjan (2011) do for threshold- and quantile-weighted scores."
+msgstr "The classical CRPS of every observation is averaged with the weights ``weight_func(obs) * weight``. This weights observations, not the integrand of the CRPS as Gneiting & Ranjan (2011) do for threshold- and quantile-weighted scores."
+
+msgid "Forecast values: same shape as ``obs`` (deterministic) or ``obs.shape + (n_members,)`` (ensemble)."
+msgstr "Forecast values: same shape as ``obs`` (deterministic) or ``obs.shape + (n_members,)`` (ensemble)."
+
+msgid "Weight function w(y) applied to observations. Default: uniform weight (standard CRPS). Examples: lambda y: 1/y for emphasizing low flows, lambda y: y for emphasizing high flows."
+msgstr "Weight function w(y) applied to observations. Default: uniform weight (standard CRPS). Examples: lambda y: 1/y for emphasizing low flows, lambda y: y for emphasizing high flows."
+
+msgid "*float or ndarray* -- Weighted CRPS value."
+msgstr "*float or ndarray* -- Weighted CRPS value."
+
+msgid "Gneiting & Ranjan (2011), DOI: 10.1198/jbes.2010.08110"
+msgstr "Gneiting & Ranjan (2011), DOI: 10.1198/jbes.2010.08110"
+
+msgid "hydrometrics.willmott\\_d"
+msgstr "hydrometrics.willmott\\_d"
+
+msgid "Willmott's Index of Agreement (d)."
+msgstr "Willmott's Index of Agreement (d)."
+
+msgid "Implements the original index of Willmott (1981), ``d = 1 - sum((O - P)^2) / sum((|P - mean(O)| + |O - mean(O)|)^2)``. With weights, the sums and the observed mean are weighted. Modified and refined variants of the index, including the refined index of Willmott et al. (2012), are not implemented."
+msgstr "Implements the original index of Willmott (1981), ``d = 1 - sum((O - P)^2) / sum((|P - mean(O)| + |O - mean(O)|)^2)``. With weights, the sums and the observed mean are weighted. Modified and refined variants of the index, including the refined index of Willmott et al. (2012), are not implemented."
+
+msgid "*float or ndarray* -- Willmott's d value."
+msgstr "*float or ndarray* -- Willmott's d value."
+
+msgid "Willmott (1981), DOI: 10.1080/02723646.1981.10642213"
+msgstr "Willmott (1981), DOI: 10.1080/02723646.1981.10642213"
+
+msgid "Willmott et al. (2012), DOI: 10.1002/joc.2419"
+msgstr "Willmott et al. (2012), DOI: 10.1002/joc.2419"
+
+msgid "Вспомогательные функции и реестр"
+msgstr "Helper functions and the registry"
+
+msgid "Из ``hydrometrics`` экспортируются три объекта, которые не являются метриками: две функции для построения режимных кривых и реестр, через который вызов метрики попадает на нужный бэкенд."
+msgstr "``hydrometrics`` exports three objects that are not metrics: two functions that build regime curves and the registry through which a metric call reaches the right backend."
+
+msgid "Средний годовой гидрограф"
+msgstr "Mean annual hydrograph"
+
+msgid "Функция :func:`~hydrometrics.mean_annual_hydrograph` усредняет значения по календарным суткам за все годы ряда; пропуски не учитываются. Если в ряду есть високосный год, результат содержит 366 значений, и 29 февраля занимает отдельное место."
+msgstr "The function :func:`~hydrometrics.mean_annual_hydrograph` averages the values by calendar day over all years of the series; gaps are ignored. If the series contains a leap year, the result has 366 values and 29 February keeps a place of its own."
+
+msgid "Функция :func:`~hydrometrics.mean_annual_hydrograph_duration_curve` сортирует средний годовой гидрограф по убыванию. Из 366 значений получается 365: при наличии високосного года усредняются два наименьших значения, то есть значения на 365-й и 366-й позициях ранжированного ряда (то же правило, что для годовых кривых в :ref:`metric-regNSE`). Это позиции по рангу, а не календарные дни. Полученная кривая служит опорной в :ref:`metric-regNSE`."
+msgstr "The function :func:`~hydrometrics.mean_annual_hydrograph_duration_curve` sorts the mean annual hydrograph in descending order. 366 values are reduced to 365 when a leap year is present by averaging the two smallest values, that is the values at positions 365 and 366 of the ranked series (the same rule as for the annual curves in :ref:`metric-regNSE`). These are rank positions, not calendar days. The resulting curve is the reference of :ref:`metric-regNSE`."
+
+msgid "Compute mean annual hydrograph."
+msgstr "Compute mean annual hydrograph."
+
+msgid "Returns 366 values if the input series contains any leap year, otherwise 365 values. 29 February is kept as its own calendar day."
+msgstr "Returns 366 values if the input series contains any leap year, otherwise 365 values. 29 February is kept as its own calendar day."
+
+msgid "Observed discharge values, one-dimensional."
+msgstr "Observed discharge values, one-dimensional."
+
+msgid "Observation dates, same shape as ``obs``."
+msgstr "Observation dates, same shape as ``obs``."
+
+msgid "*np.ndarray* -- Mean discharge for each calendar day (365 or 366 values)."
+msgstr "*np.ndarray* -- Mean discharge for each calendar day (365 or 366 values)."
+
+msgid "Compute a flow duration curve based on the mean annual hydrograph."
+msgstr "Compute a flow duration curve based on the mean annual hydrograph."
+
+msgid "Compute the mean annual hydrograph (365 or 366 values)."
+msgstr "Compute the mean annual hydrograph (365 or 366 values)."
+
+msgid "Sort it in descending order."
+msgstr "Sort it in descending order."
+
+msgid "If the result has 366 values, average the values at ranks 365 and 366 of the descending ranking (the two smallest) so that the final length is 365. These are rank positions, not calendar days: after sorting, 29 February has no fixed position. The annual curves of ``regNSE`` follow the same rule."
+msgstr "If the result has 366 values, average the values at ranks 365 and 366 of the descending ranking (the two smallest) so that the final length is 365. These are rank positions, not calendar days: after sorting, 29 February has no fixed position. The annual curves of ``regNSE`` follow the same rule."
+
+msgid "Observed discharge values."
+msgstr "Observed discharge values."
+
+msgid "Observation dates."
+msgstr "Observation dates."
+
+msgid "*np.ndarray* -- Flow duration curve with 365 values, sorted in descending order."
+msgstr "*np.ndarray* -- Flow duration curve with 365 values, sorted in descending order."
+
+msgid "Пример: два водных года с половодьем в конце апреля, расход в м³/с."
+msgstr "Example: two water years with a spring flood in late April, discharge in m³/s."
+
+msgid ""
+"import numpy as np\n"
+"import hydrometrics as hm\n"
+"\n"
+"dates = np.arange(\"2011-10-01\", \"2013-10-01\", dtype=\"datetime64[D]\")  # contains 29 February 2012\n"
+"doy = (dates - dates.astype(\"datetime64[Y]\")).astype(int)\n"
+"q = 20 + 150 * np.exp(-(((doy - 118) / 16.0) ** 2))  # synthetic flood hydrograph, m3/s\n"
+"hydrograph = hm.mean_annual_hydrograph(q, dates)\n"
+"curve = hm.mean_annual_hydrograph_duration_curve(q, dates)\n"
+"print(hydrograph.shape, curve.shape)\n"
+"print(bool(np.all(np.diff(curve) <= 0)), round(float(curve[0]), 1), round(float(curve[-1]), 1))"
+msgstr ""
+"import numpy as np\n"
+"import hydrometrics as hm\n"
+"\n"
+"dates = np.arange(\"2011-10-01\", \"2013-10-01\", dtype=\"datetime64[D]\")  # contains 29 February 2012\n"
+"doy = (dates - dates.astype(\"datetime64[Y]\")).astype(int)\n"
+"q = 20 + 150 * np.exp(-(((doy - 118) / 16.0) ** 2))  # synthetic flood hydrograph, m3/s\n"
+"hydrograph = hm.mean_annual_hydrograph(q, dates)\n"
+"curve = hm.mean_annual_hydrograph_duration_curve(q, dates)\n"
+"print(hydrograph.shape, curve.shape)\n"
+"print(bool(np.all(np.diff(curve) <= 0)), round(float(curve[0]), 1), round(float(curve[-1]), 1))"
+
+msgid ""
+"(366,) (365,)\n"
+"True 170.0 20.0"
+msgstr ""
+"(366,) (365,)\n"
+"True 170.0 20.0"
+
+msgid "Реестр бэкендов"
+msgstr "Backend registry"
+
+msgid "Каждая метрика зарегистрирована в реестре под своим именем для numpy, pandas, polars и xarray. Публичная функция, например ``hydrometrics.nse``, это диспетчер: он смотрит на тип входов и вызывает реализацию нужного бэкенда, а при её отсутствии реализацию numpy. Глобальный реестр доступен как ``hydrometrics.registry``."
+msgstr "Every metric is registered under its name for NumPy, pandas, polars and xarray. A public function such as ``hydrometrics.nse`` is a dispatcher: it looks at the type of the inputs and calls the implementation of that backend, or the NumPy one if there is none. The global registry is available as ``hydrometrics.registry``."
+
+msgid ""
+"import hydrometrics as hm\n"
+"\n"
+"print(type(hm.registry).__name__)\n"
+"print(hm.registry.get_dispatcher(\"nse\").__name__)"
+msgstr ""
+"import hydrometrics as hm\n"
+"\n"
+"print(type(hm.registry).__name__)\n"
+"print(hm.registry.get_dispatcher(\"nse\").__name__)"
+
+msgid ""
+"BackendRegistry\n"
+"nse"
+msgstr ""
+"BackendRegistry\n"
+"nse"
+
+msgid "Собственную метрику создаёт декоратор :func:`hydrometrics.core.base.metric`; регистрация в реестре даёт ей единый вызов со всеми параметрами метрик пакета (``nan_policy``, ``sample_weight``, ``axis``, ``reduction``). В примере используется отдельный экземпляр реестра, чтобы не менять глобальный."
+msgstr "A custom metric is made with the decorator :func:`hydrometrics.core.base.metric`; registering it gives it the unified call with all the parameters of the package metrics (``nan_policy``, ``sample_weight``, ``axis``, ``reduction``). The example uses a separate registry instance so as not to change the global one."
+
+msgid ""
+"import numpy as np\n"
+"import pandas as pd\n"
+"from hydrometrics.core.base import metric\n"
+"from hydrometrics.core.dispatch import BackendRegistry\n"
+"\n"
+"\n"
+"@metric(name=\"Mean ratio\", direction=\"target\", bounds=(0.0, None), reference=\"own\", optimum=1.0)\n"
+"def mean_ratio(obs, sim, *, weight=None, axis=None, reduction=\"mean\"):\n"
+"    \"\"\"Ratio of the means of simulated and observed values.\"\"\"\n"
+"    return np.nanmean(sim, axis=axis) / np.nanmean(obs, axis=axis)\n"
+"\n"
+"\n"
+"registry = BackendRegistry()  # a private registry; hydrometrics.registry holds the package metrics\n"
+"registry.register_numpy(\"mean_ratio\", mean_ratio)\n"
+"dispatch = registry.get_dispatcher(\"mean_ratio\")\n"
+"\n"
+"q_obs = pd.Series([10.0, 20.0, np.nan, 40.0])\n"
+"q_sim = pd.Series([12.0, 18.0, 25.0, 44.0])\n"
+"result = dispatch(q_obs, q_sim)\n"
+"print(round(float(result), 4), result.direction, result.nan_info[\"n_nan_removed\"])"
+msgstr ""
+"import numpy as np\n"
+"import pandas as pd\n"
+"from hydrometrics.core.base import metric\n"
+"from hydrometrics.core.dispatch import BackendRegistry\n"
+"\n"
+"\n"
+"@metric(name=\"Mean ratio\", direction=\"target\", bounds=(0.0, None), reference=\"own\", optimum=1.0)\n"
+"def mean_ratio(obs, sim, *, weight=None, axis=None, reduction=\"mean\"):\n"
+"    \"\"\"Ratio of the means of simulated and observed values.\"\"\"\n"
+"    return np.nanmean(sim, axis=axis) / np.nanmean(obs, axis=axis)\n"
+"\n"
+"\n"
+"registry = BackendRegistry()  # a private registry; hydrometrics.registry holds the package metrics\n"
+"registry.register_numpy(\"mean_ratio\", mean_ratio)\n"
+"dispatch = registry.get_dispatcher(\"mean_ratio\")\n"
+"\n"
+"q_obs = pd.Series([10.0, 20.0, np.nan, 40.0])\n"
+"q_sim = pd.Series([12.0, 18.0, 25.0, 44.0])\n"
+"result = dispatch(q_obs, q_sim)\n"
+"print(round(float(result), 4), result.direction, result.nan_info[\"n_nan_removed\"])"
+
+msgid "1.0571 target 1"
+msgstr "1.0571 target 1"
+
+msgid "Для pandas-входа в этом примере нет отдельной реализации, поэтому используется numpy-функция; пара с пропуском удалена, а число удалённых пар записано в ``nan_info``."
+msgstr "There is no pandas-specific implementation in this example, so the NumPy function is used; the pair with a gap is dropped and the number of dropped pairs is recorded in ``nan_info``."
+
+msgid "Registry of metric functions, one implementation per backend."
+msgstr "Registry of metric functions, one implementation per backend."
+
+msgid "Each metric is registered under a name for the backends it supports (``register_numpy``, ``register_pandas``, ``register_polars``, ``register_xarray``). ``get_dispatcher`` returns a function that looks at the type of its inputs and calls the implementation of that backend, falling back to the NumPy one when a backend has none. The package registers all of its metrics in the global instance ``hydrometrics.registry``; a new metric made with :func:`hydrometrics.core.base.metric` can be registered the same way."
+msgstr "Each metric is registered under a name for the backends it supports (``register_numpy``, ``register_pandas``, ``register_polars``, ``register_xarray``). ``get_dispatcher`` returns a function that looks at the type of its inputs and calls the implementation of that backend, falling back to the NumPy one when a backend has none. The package registers all of its metrics in the global instance ``hydrometrics.registry``; a new metric made with :func:`hydrometrics.core.base.metric` can be registered the same way."
+
+msgid "Register the NumPy implementation of metric ``name`` (also the fallback for the others)."
+msgstr "Register the NumPy implementation of metric ``name`` (also the fallback for the others)."
+
+msgid "Register the implementation used for pandas ``Series`` and ``DataFrame`` inputs."
+msgstr "Register the implementation used for pandas ``Series`` and ``DataFrame`` inputs."
+
+msgid "Register the implementation used for xarray ``DataArray`` and ``Dataset`` inputs."
+msgstr "Register the implementation used for xarray ``DataArray`` and ``Dataset`` inputs."
+
+msgid "Register the implementation used for polars ``Series`` and ``DataFrame`` inputs."
+msgstr "Register the implementation used for polars ``Series`` and ``DataFrame`` inputs."
+
+msgid "Create a dispatching function for a given metric name."
+msgstr "Create a dispatching function for a given metric name."
+
+msgid "The function takes ``(obs, sim, **kwargs)``, chooses the backend from the input types (xarray, then pandas, then polars, otherwise NumPy) and calls its implementation. The name, docstring, signature and metadata attributes are copied from the NumPy implementation, which must be registered."
+msgstr "The function takes ``(obs, sim, **kwargs)``, chooses the backend from the input types (xarray, then pandas, then polars, otherwise NumPy) and calls its implementation. The name, docstring, signature and metadata attributes are copied from the NumPy implementation, which must be registered."
+
+msgid "Справочник API"
+msgstr "API reference"
+
+msgid "Справочник построен автоматически из докстрингов. Определения, формулы, интерпретация и примеры находятся на страницах метрик; здесь только сигнатуры и описание параметров, поэтому тексты не дублируются."
+msgstr "The reference is built automatically from docstrings. Definitions, formulas, interpretation and examples are on the metric pages; here are only signatures and parameter descriptions, so the texts are not duplicated."
+
+msgid "Докстринги написаны на английском и не переводятся: русская версия документации показывает их на английском языке."
+msgstr "The docstrings are written in English and are not translated: the Russian version of the documentation shows them in English."
+
+msgid "Метрики: :doc:`metrics`"
+msgstr "Metrics: :doc:`metrics`"
+
+msgid "Результаты, группировка, декоратор метрики и реестр: :doc:`core`"
+msgstr "Results, grouping, the metric decorator and the registry: :doc:`core`"
+
+msgid "Бэкенды: :doc:`backends`"
+msgstr "Backends: :doc:`backends`"
+
+msgid "Функции режимных кривых и реестр: :doc:`helpers`"
+msgstr "Functions for regime curves and the registry: :doc:`helpers`"
+
+msgid "Метрики"
+msgstr "Metrics"
+
+msgid "Ошибки и корреляция"
+msgstr "Errors and correlation"
+
+msgid ":py:obj:`hydrometrics.mae <hydrometrics.mae>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.mae <hydrometrics.mae>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.mse <hydrometrics.mse>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.mse <hydrometrics.mse>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.rmse <hydrometrics.rmse>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.rmse <hydrometrics.rmse>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.nrmse <hydrometrics.nrmse>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.nrmse <hydrometrics.nrmse>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.bias <hydrometrics.bias>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.bias <hydrometrics.bias>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.pbias <hydrometrics.pbias>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.pbias <hydrometrics.pbias>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.pearson_r <hydrometrics.pearson_r>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.pearson_r <hydrometrics.pearson_r>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.spearman_r <hydrometrics.spearman_r>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.spearman_r <hydrometrics.spearman_r>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.kendall_tau <hydrometrics.kendall_tau>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.kendall_tau <hydrometrics.kendall_tau>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.r2 <hydrometrics.r2>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.r2 <hydrometrics.r2>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.willmott_d <hydrometrics.willmott_d>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.willmott_d <hydrometrics.willmott_d>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid "Критерии эффективности, производные от NSE"
+msgstr "Efficiency criteria derived from NSE"
+
+msgid ":py:obj:`hydrometrics.nse <hydrometrics.nse>`\\ \\(obs\\, sim\\, \\*\\[\\, norm\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.nse <hydrometrics.nse>`\\ \\(obs\\, sim\\, \\*\\[\\, norm\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.log_nse <hydrometrics.log_nse>`\\ \\(obs\\, sim\\, \\*\\[\\, eps\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.log_nse <hydrometrics.log_nse>`\\ \\(obs\\, sim\\, \\*\\[\\, eps\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.modified_nse <hydrometrics.modified_nse>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.modified_nse <hydrometrics.modified_nse>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.nse_bounded <hydrometrics.nse_bounded>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.nse_bounded <hydrometrics.nse_bounded>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.nse_variance_weighted <hydrometrics.nse_variance_weighted>`\\ \\(obs\\, sim\\, ...\\)"
+msgstr ":py:obj:`hydrometrics.nse_variance_weighted <hydrometrics.nse_variance_weighted>`\\ \\(obs\\, sim\\, ...\\)"
+
+msgid ":py:obj:`hydrometrics.regNSE <hydrometrics.regNSE>`\\ \\(obs\\, sim\\, \\*\\, dates\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.regNSE <hydrometrics.regNSE>`\\ \\(obs\\, sim\\, \\*\\, dates\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.rsr <hydrometrics.rsr>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.rsr <hydrometrics.rsr>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.ve <hydrometrics.ve>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.ve <hydrometrics.ve>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid "Критерий Клинга–Гупты и его компоненты"
+msgstr "Kling–Gupta efficiency and its components"
+
+msgid ":py:obj:`hydrometrics.kge_2009 <hydrometrics.kge_2009>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.kge_2009 <hydrometrics.kge_2009>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.kge_2012 <hydrometrics.kge_2012>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.kge_2012 <hydrometrics.kge_2012>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.kge_components <hydrometrics.kge_components>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.kge_components <hydrometrics.kge_components>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.r_component <hydrometrics.r_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.r_component <hydrometrics.r_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.alpha_component <hydrometrics.alpha_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.alpha_component <hydrometrics.alpha_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.beta_component <hydrometrics.beta_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.beta_component <hydrometrics.beta_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.gamma_component <hydrometrics.gamma_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.gamma_component <hydrometrics.gamma_component>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid "Оценка гидрологических прогнозов по допустимой погрешности"
+msgstr "Assessment of hydrological forecasts against a permissible error"
+
+msgid ":py:obj:`hydrometrics.ssigma <hydrometrics.ssigma>`\\ \\(obs\\, sim\\, \\*\\[\\, m\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.ssigma <hydrometrics.ssigma>`\\ \\(obs\\, sim\\, \\*\\[\\, m\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.ssigma_delta <hydrometrics.ssigma_delta>`\\ \\(obs\\, sim\\, \\*\\, ref\\_date\\)"
+msgstr ":py:obj:`hydrometrics.ssigma_delta <hydrometrics.ssigma_delta>`\\ \\(obs\\, sim\\, \\*\\, ref\\_date\\)"
+
+msgid ":py:obj:`hydrometrics.forecast_verification <hydrometrics.forecast_verification>`\\ \\(obs\\, sim\\, \\*\\)"
+msgstr ":py:obj:`hydrometrics.forecast_verification <hydrometrics.forecast_verification>`\\ \\(obs\\, sim\\, \\*\\)"
+
+msgid ":py:obj:`hydrometrics.forecast_verification_delta <hydrometrics.forecast_verification_delta>`\\ \\(...\\)"
+msgstr ":py:obj:`hydrometrics.forecast_verification_delta <hydrometrics.forecast_verification_delta>`\\ \\(...\\)"
+
+msgid "Вероятностные прогнозы"
+msgstr "Probabilistic forecasts"
+
+msgid ":py:obj:`hydrometrics.crps <hydrometrics.crps>`\\ \\(obs\\, sim\\, \\*\\[\\, fair\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.crps <hydrometrics.crps>`\\ \\(obs\\, sim\\, \\*\\[\\, fair\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.weighted_crps <hydrometrics.weighted_crps>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.weighted_crps <hydrometrics.weighted_crps>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.crpss <hydrometrics.crpss>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.crpss <hydrometrics.crpss>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.brier_score <hydrometrics.brier_score>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.brier_score <hydrometrics.brier_score>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.reliability <hydrometrics.reliability>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.reliability <hydrometrics.reliability>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.sharpness <hydrometrics.sharpness>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.sharpness <hydrometrics.sharpness>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid "Бинарные события"
+msgstr "Binary events"
+
+msgid ":py:obj:`hydrometrics.accuracy <hydrometrics.accuracy>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.accuracy <hydrometrics.accuracy>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.precision <hydrometrics.precision>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.precision <hydrometrics.precision>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.recall <hydrometrics.recall>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.recall <hydrometrics.recall>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.f1_score <hydrometrics.f1_score>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.f1_score <hydrometrics.f1_score>`\\ \\(obs\\, sim\\, \\*\\[\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.roc_auc <hydrometrics.roc_auc>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.roc_auc <hydrometrics.roc_auc>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.pr_auc <hydrometrics.pr_auc>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.pr_auc <hydrometrics.pr_auc>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.edi <hydrometrics.edi>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.edi <hydrometrics.edi>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+
+msgid ":py:obj:`hydrometrics.sedi <hydrometrics.sedi>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+msgstr ":py:obj:`hydrometrics.sedi <hydrometrics.sedi>`\\ \\(obs\\, sim\\, \\*\\[\\, axis\\, ...\\]\\)"
+

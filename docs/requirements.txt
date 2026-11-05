@@ -1,0 +1,9 @@
+# Зависимости сборки документации; те же версии указаны в extras "docs" в pyproject.toml.
+sphinx==9.2.0
+pydata-sphinx-theme==0.23.0
+sphinx-copybutton==0.5.2
+sphinx-design==0.7.0
+sphinx-gallery==0.22.1
+sphinxcontrib-bibtex==2.7.0
+sphinx-intl==2.4.0
+matplotlib==3.11.2

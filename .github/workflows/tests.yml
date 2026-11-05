@@ -1,0 +1,97 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: tests (${{ matrix.os }}, Python ${{ matrix.python }}, ${{ matrix.deps }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        # the lowest supported version and the current stable ones
+        python: ["3.10", "3.12", "3.13", "3.14"]
+        # numpy only, numpy with one optional backend, all backends and scipy
+        deps: [numpy-only, pandas, all]
+        include:
+          - {os: windows-latest, python: "3.13", deps: all}
+          - {os: macos-latest, python: "3.13", deps: all}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install (numpy only)
+        if: matrix.deps == 'numpy-only'
+        run: python -m pip install . pytest
+      - name: Install (numpy and pandas)
+        if: matrix.deps == 'pandas'
+        run: python -m pip install ".[pandas]" pytest
+      - name: Install (all backends and scipy)
+        if: matrix.deps == 'all'
+        run: python -m pip install ".[test]"
+      - name: Run the tests
+        run: python -m pytest tests --ignore=tests/crosscheck -p no:cacheprovider
+
+  crosscheck:
+    name: cross-check against third-party packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install ".[test,crosscheck]"
+      - run: python -m pytest tests/crosscheck -p no:cacheprovider
+
+  docs:
+    name: documentation (ru and en)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"  # the version of .readthedocs.yaml
+      - run: python -m pip install ".[docs]"
+      - name: Build the Russian version
+        run: python -m sphinx -b html -D language=ru -W --keep-going docs docs/_build/html/ru
+      - name: Build the English version
+        run: python -m sphinx -b html -D language=en -W --keep-going docs docs/_build/html/en
+      - name: Doctest
+        run: |
+          python -m sphinx -b doctest -D language=ru docs docs/_build/doctest/ru
+          python -m sphinx -b doctest -D language=en docs docs/_build/doctest/en
+      - name: Check translations and metric pages
+        run: |
+          python docs/_dev/check_translations.py
+          python docs/_dev/check_metric_pages.py
+
+  package:
+    name: build and check the distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install build twine
+      - run: python -m build
+      - run: python -m twine check dist/*
+      - name: The wheel holds the package only
+        run: |
+          python - <<'PY'
+          import glob, zipfile
+          names = zipfile.ZipFile(glob.glob("dist/*.whl")[0]).namelist()
+          assert all(n.startswith(("hydrometrics/", "hydrometrics-")) for n in names), names
+          assert any(n.endswith("py.typed") for n in names), "py.typed is missing"
+          assert any(n.endswith("LICENSE") for n in names), "LICENSE is missing"
+          PY
