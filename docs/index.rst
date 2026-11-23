@@ -23,6 +23,7 @@ hydrometrics
    user_guide/pitfalls
    user_guide/limits
    user_guide/extending
+   user_guide/known_limits
    user_guide/glossary
 
 
@@ -38,4 +39,5 @@ hydrometrics
    :caption: Справочник API
 
    api/index
+
 
